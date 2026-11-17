@@ -1,0 +1,10 @@
+monorepo:
+  acronym: "[for] [dev]eloppers"
+  desc   : "This monorepo brings together useful tools for software development."
+
+  author: Christophe, BAL
+
+  urls:
+    home  : https://github.com/bc-tools/dev-tools
+    dev   : https://github.com/bc-tools/dev-tools/tree/main/aboutmeta
+    issues: https://github.com/bc-tools/dev-tools/issues
