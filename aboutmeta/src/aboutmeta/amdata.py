@@ -948,6 +948,26 @@ class AMData:
 # ----------- #
 
 if __name__ == "__main__":
+# dev:
+    INTERACTIVE_SESSION = True
+    # INTERACTIVE_SESSION = False
+# :dev
+
+    from hypothesis import (
+        given,
+        strategies as st
+    )
+
+    import pytest
+
+
+
+
+
+
+
+
+
 # What I test.
     TEST_WANTED = [
         # 1, # Only project.
@@ -959,7 +979,7 @@ if __name__ == "__main__":
 
     projdir = Path(__file__).parent
 
-    while projdir.name != 'for-dev':
+    while projdir.name != 'cbdev-tools':
         projdir = projdir.parent
 
 # Only project.

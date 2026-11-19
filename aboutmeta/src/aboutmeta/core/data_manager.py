@@ -46,8 +46,8 @@ def add_log_methods(*log_levels: str) -> callable:
 #     fnc: underlying ''logging'' function to be wrapped.
 #
 #     :return: method wrapper that prefixes the ''logging''
-#         message, using the ''cls._prefixed'' method, and then
-#         executes the 'logging' call.
+#         message, using the ''cls._prefixed'' method, and
+#         then executes the 'logging' call.
 ###
             def _make_logger(fnc: callable) -> callable:
                 @wraps(fnc)
@@ -329,7 +329,7 @@ if __name__ == '__main__':
         THIS_DIR       = Path(__file__).parent
         TOOLS_DATA_DIR = THIS_DIR
 
-        while(TOOLS_DATA_DIR.name != 'for-dev'):
+        while(TOOLS_DATA_DIR.name != 'cbdev-tools'):
             TOOLS_DATA_DIR = TOOLS_DATA_DIR.parent
 
         TOOLS_DATA_DIR = TOOLS_DATA_DIR / 'aboutmeta' / 'tools' / 'data' / 'svg'
