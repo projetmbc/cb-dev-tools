@@ -4,16 +4,15 @@ cbdev-tools monorepo
 This monorepo contains a few tools that can make amateur developers' lives easier.
 
 
-Included projects
------------------
+Included project
+----------------
 
 <!-- MONOREPO CONTENT - START -->
-### Name 1 [1.0.0]
 
-Short desc #1 from about.yaml...
+### aboutmeta [1.0.0-beta.1]
 
+This module enables the definition of project metadata using 'about.yaml' files, simplifying the management of digital projects (both code and text) by third-party applications.
 
-### Name 2 [2.0.0]
+Go to the [README.md](./aboutmeta/README.md) of this project.
 
-Short desc #2 from about.yaml...
 <!-- MONOREPO CONTENT - END -->

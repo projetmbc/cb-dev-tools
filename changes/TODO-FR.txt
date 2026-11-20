@@ -1,0 +1,19 @@
+===========
+cbdev-tools - TODO
+===========
+
+
+> ---------------------------- <
+
+ajout des projets auto sous la forme suivante.
+
+
+<!-- MONOREPO CONTENT - START -->
+
+### aboutmeta [1.0.0-beta.1]
+
+This module enables the definition of project metadata using 'about.yaml' files, simplifying the management of digital projects (both code and text) by third-party applications.
+
+Go to the [README.md](./aboutmeta/README.md) of this project.
+
+<!-- MONOREPO CONTENT - END -->

@@ -7,7 +7,6 @@ aboutmeta - TODO
 
 unit tests locaux
 
-./aboutmeta/core/log_conf.py
 ./aboutmeta/core/data_manager.py
 ./aboutmeta/amdata.py
 
@@ -18,46 +17,38 @@ unit tests locaux
 
 > ---------------------------- <
 
-unit tests avec msg
+unit tests avec validation des msg des exceptions!
 
-./aboutmeta/tools/spacing.py
-./aboutmeta/tools/web.py
-./aboutmeta/tools/group.py
-./aboutmeta/core/log_conf.py
-./aboutmeta/core/validate.py
-./aboutmeta/core/data_manager.py
-./aboutmeta/amdata.py
+with pytest.raises(TypeError) as e:
+    validate_type(
+        var_name       = '',
+        value          = val,
+        expected_types = _type,
+    )
+
+print("Message d'erreur capturé :", e.value)
 
 
 > ---------------------------- <
 
-cbutils : ajout de l'intégration des tests
+cbutils doit devenit pytils + texutils ... on le pemt sur pypi et du coup on vire des etmplates de monorepo qui deviennent minimaliset et utilisables via copier car maj des utils faite via pypi
+
++
+
+cbutils: ajout de l'intégration des tests
 
    --> section NO TEST pour cas où les test ne sont pas fasiables ou vraiement inutiles
 
-   --> besoin d'ajout des ifchiers de config yaml pour imposer l'ordre des tests, sinon on les rodonnée naturellement
+   --> besoin d'ajout des ifchiers de config yaml pour imposer l'ordre des tests, et pour tout le reste on les ordonne naturellement TOUT LE TEMPS!
 
    --> tests indiqués dans le foncig yaml toujours en premier, on peut ainsi imposer des tests critiques au tout début et pour la suirte utiliser l'ordre naturellement
 
    --> interdire tests vides !!!
 
-> ---------------------------- <
-
-gestion des message d'erreur !!!
-
-        with pytest.raises(TypeError) as e:
-            validate_type(
-                var_name       = '',
-                value          = val,
-                expected_types = _type,
-            )
-
-        print("Message d'erreur capturé :", e.value)
-
 
 > ---------------------------- <
 
-on vire les (car si maj alors on doit chger aussi la doc (c'est con!)
+on vire les sessions term en dur, car si maj alors on doit chger aussi la doc (c'est con!)
 
 pyterm::
     > from aboutmeta.tools.group import extract_group
@@ -140,9 +131,12 @@ def simulate_code_session(code_lines):
 
         print() # Ligne vide pour aéreracous
 
+
 > ---------------------------- <
 
-post prod : besoin de penser au cas de différentes clés utilisé et du besoin de faire le lien avec la desc technique !!!
+Doc
+
+    + post prod : besoin de penser au cas de différentes clés utilisé et du besoin de faire le lien avec la desc technique !!!
 
 
 > ---------------------------- <
@@ -207,7 +201,7 @@ unit tetst
 
 flavour
 
-     --> cdt en plus avec les parsers associés
+     --> cdt en plus avec les parsers associés : attention c'est juste pour la config, pour les contenus, cec sera le boulot d'un projet dédie !!!!
 
 
 > ---------------------------- <
