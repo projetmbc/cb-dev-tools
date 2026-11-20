@@ -12,8 +12,9 @@ ajout des projets auto sous la forme suivante.
 
 ### aboutmeta [1.0.0-beta.1]
 
-This module enables the definition of project metadata using 'about.yaml' files, simplifying the management of digital projects (both code and text) by third-party applications.
+<img src="https://img.shields.io/badge/-src-informational?logo=github&style=flat-square" align="absmiddle"></img>
+[Go to project](./aboutmeta).
 
-Go to [this project](./aboutmeta).
+This module enables the definition of project metadata using 'about.yaml' files, simplifying the management of digital projects (both code and text) by third-party applications.
 
 <!-- MONOREPO CONTENT - END -->

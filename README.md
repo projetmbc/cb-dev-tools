@@ -11,8 +11,23 @@ Included project
 
 ### aboutmeta [1.0.0-beta.1]
 
+<img src="https://img.shields.io/badge/-src-informational?logo=github&style=flat-square" align="absmiddle"></img>
+[Go to project](./aboutmeta).
+
 This module enables the definition of project metadata using 'about.yaml' files, simplifying the management of digital projects (both code and text) by third-party applications.
 
-Go to [this project](./aboutmeta).
+### aboutmeta [1.0.0-beta.1]
+
+<img src="https://img.shields.io/badge/-src-informational?logo=github&style=flat-square" align="absmiddle"></img>
+[Go to project](./aboutmeta).
+
+This module enables the definition of project metadata using 'about.yaml' files, simplifying the management of digital projects (both code and text) by third-party applications.
+
+### aboutmeta [1.0.0-beta.1]
+
+<img src="https://img.shields.io/badge/-src-informational?logo=github&style=flat-square" align="absmiddle"></img>
+[Go to project](./aboutmeta).
+
+This module enables the definition of project metadata using 'about.yaml' files, simplifying the management of digital projects (both code and text) by third-party applications.
 
 <!-- MONOREPO CONTENT - END -->
