@@ -13,6 +13,6 @@ Included project
 
 This module enables the definition of project metadata using 'about.yaml' files, simplifying the management of digital projects (both code and text) by third-party applications.
 
-Go to the [README.md](./aboutmeta/README.md) of this project.
+Go to [this project](./aboutmeta).
 
 <!-- MONOREPO CONTENT - END -->
