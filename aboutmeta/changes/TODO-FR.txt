@@ -10,10 +10,6 @@ unit tests locaux
 ./aboutmeta/core/data_manager.py
 ./aboutmeta/amdata.py
 
-# dev:
-    print('LOCAL TESTS DONE..')
-# :dev
-
 
 > ---------------------------- <
 

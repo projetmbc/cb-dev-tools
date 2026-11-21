@@ -270,11 +270,13 @@ class DataPB:
     ):
         if is_validated:
             status, desc = 'OK', 'validated'
+            method       = self.info
 
         else:
             status, desc = 'KO', 'rejected'
+            method       = self.warning
 
-        self.info(f"{status}\n'{data}' {desc}.")
+        method(f"{status}\n'{data}' {desc}.")
 
 
 # ---------------------------- #
@@ -302,102 +304,94 @@ class DataManager:
         dataclass()(cls)
 
 
-# ----------- #
-# -- TESTS -- #
-# ----------- #
+# ------------- #
+# -- NO TEST -- #
+# ------------- #
+
+# We just check visually that settings are good.
 
 if __name__ == '__main__':
-# dev:
-    INTERACTIVE_SESSION = True
-    # INTERACTIVE_SESSION = False
-# :dev
+    from pathlib import Path
+    from pprint  import pprint
 
-    from hypothesis import (
-        given,
-        strategies as st
+    THIS_DIR       = Path(__file__).parent
+    TOOLS_DATA_DIR = THIS_DIR
+
+    while(TOOLS_DATA_DIR.name != 'cbdev-tools'):
+        TOOLS_DATA_DIR = TOOLS_DATA_DIR.parent
+
+    TOOLS_DATA_DIR = TOOLS_DATA_DIR / 'aboutmeta' / 'tools' / 'data' / 'svg'
+
+    active_console = setup_logging()
+
+
+    print('---')
+
+    class MyData(DataManager):
+        yaml_val: str
+        foo     : str
+
+    mydata = MyData(
+        yaml_val = '-> OK <-',
+        foo      = 'OK',
     )
 
-    import pytest
+    print(f'{mydata!r}')
 
-# dev:
-    if INTERACTIVE_SESSION:
-        print('---')
+    print()
 
-        from pathlib import Path
-        from pprint  import pprint
+    data_pb = mydata.data_pb
 
-        THIS_DIR       = Path(__file__).parent
-        TOOLS_DATA_DIR = THIS_DIR
+    data_pb.what('Testing me')
+    data_pb.start()
 
-        while(TOOLS_DATA_DIR.name != 'cbdev-tools'):
-            TOOLS_DATA_DIR = TOOLS_DATA_DIR.parent
+    print()
 
-        TOOLS_DATA_DIR = TOOLS_DATA_DIR / 'aboutmeta' / 'tools' / 'data' / 'svg'
+    data_pb.checking('good thing')
+    data_pb.validated('good thing')
 
-        active_console = setup_logging()
+    print()
 
-        class MyData(DataManager):
-            yaml_val: str
-            foo     : str
+    data_pb.checking('bad thing')
+    data_pb.rejected('good thing')
 
-        mydata = MyData(
-            yaml_val = '-> OK <-',
-            foo      = 'OK',
+    print()
+
+    data_pb.no_check()
+
+    print()
+
+    data_pb.info('My info')
+    data_pb.warning('My warning')
+    data_pb.error('My error')
+    data_pb.critical('My critical')
+
+    print()
+
+    try:
+        1 / 0
+
+    except Exception as e:
+        data_pb.new_exception(
+            data       = 'mydivision',
+            _exception = e,
         )
 
-        data_pb = mydata.data_pb
+    print()
 
-        print(f'{mydata!r}')
+    data_pb.new_error(
+        data      = 'text + 4',
+        error_msg = 'invalid operation',
+    )
 
-        print('---')
+    print()
 
-        data_pb.what('Test 1')
-        data_pb.start()
-        data_pb.checking('something good')
-        data_pb.info('My personal info')
-        data_pb.validated('something good')
+    print('mydata._errors_found:')
+    pprint(mydata._errors_found)
+    print()
 
-        print('---')
+    print(f'Saving SVG screenshot')
 
-        data_pb.what('Test 2')
-        data_pb.start()
-        data_pb.checking('something bad')
-        data_pb.error('My problem')
-        data_pb.critical('Validation done has failed')
-
-        try:
-            1/0
-
-        except Exception as e:
-            data_pb.new_exception(
-                data       = 'mydivision',
-                _exception = e,
-            )
-
-        data_pb.rejected('Houston')
-
-        pprint(mydata._errors_found)
-
-        print('---')
-
-        data_pb.what('Test 3')
-        data_pb.start()
-
-        data_pb.no_check()
-
-        pprint(mydata._errors_found)
-
-        print(f'Saving SVG screenshot')
-
-        active_console.save_svg(
-            str(TOOLS_DATA_DIR  / "term-output-COLORFUL-DATA-PB.svg")
-        )
-# :dev
-
-
-
-
-
-# dev:
-    print('LOCAL TESTS DONE..')
-# :dev
+    active_console.save_svg(
+        str(TOOLS_DATA_DIR  / "term-output-COLORFUL-DATA-PB.svg")
+    )
