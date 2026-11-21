@@ -405,6 +405,8 @@ if __name__ == '__main__':
 
             for m in mydata._errors_found:
                 print(f"    > {m}")
+
+        print('---')
 # :dev
 
 # -- Weird spacing -- #

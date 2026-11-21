@@ -27,7 +27,7 @@ GLOB_ABOUT_SEARCH = '*/*about.yaml'
 # -- GOOD STRUCTURES -- #
 # --------------------- #
 
-def test_good_yaml_structure() -> None:
+def test_yaml_structure_OK() -> None:
     for bname in ALL_BLOCKS:
         contrib_tests = CONTRIB_TESTS_DIR / bname / TAG_OK
 
@@ -44,7 +44,7 @@ def test_good_yaml_structure() -> None:
 # -- BAD STRUCTURES -- #
 # -------------------- #
 
-def test_good_yaml_structure() -> None:
+def test_yaml_structure_KO() -> None:
     for bname in ALL_BLOCKS:
         contrib_tests = CONTRIB_TESTS_DIR / bname / TAG_KO
 
@@ -54,5 +54,8 @@ def test_good_yaml_structure() -> None:
                 parent  = one_about.parent,
             )
 
-            with pytest.raises((KeyPathError, ValueError)):
+            with pytest.raises((
+                KeyPathError,
+                ValueError
+            )):
                 amdata.build(no_parsing = True)
