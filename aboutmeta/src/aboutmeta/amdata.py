@@ -960,6 +960,10 @@ if __name__ == "__main__":
 
     import pytest
 
+# dev:
+    if INTERACTIVE_SESSION:
+        print('---')
+
 
 
 

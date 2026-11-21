@@ -56,6 +56,11 @@ def write(data: Version) -> str:
 # ----------- #
 
 if __name__ == "__main__":
+# dev:
+    INTERACTIVE_SESSION = True
+    INTERACTIVE_SESSION = False
+# :dev
+
     from hypothesis import (
         given,
         strategies as st
@@ -64,18 +69,19 @@ if __name__ == "__main__":
     import pytest
 
 # dev:
-    yaml_data   = "1.2.3-beta.4+build.5"
-    data_parsed = parse(yaml_data)
+    if INTERACTIVE_SESSION:
+        yaml_data   = "1.2.3-beta.4+build.5"
+        data_parsed = parse(yaml_data)
 
-    print('---')
-    print(f"{yaml_data              = }")
-    print(f"{data_parsed            = }")
-    print(f"{data_parsed.major      = }")
-    print(f"{data_parsed.minor      = }")
-    print(f"{data_parsed.patch      = }")
-    print(f"{data_parsed.prerelease = }")
-    print(f"{data_parsed.build      = }")
-    print(f"{write(data_parsed)     = }")
+        print('---')
+        print(f"{yaml_data              = }")
+        print(f"{data_parsed            = }")
+        print(f"{data_parsed.major      = }")
+        print(f"{data_parsed.minor      = }")
+        print(f"{data_parsed.patch      = }")
+        print(f"{data_parsed.prerelease = }")
+        print(f"{data_parsed.build      = }")
+        print(f"{write(data_parsed)     = }")
 # :dev
 
 # -- Data - Illegal spec -- #

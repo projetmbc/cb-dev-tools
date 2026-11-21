@@ -59,19 +59,25 @@ def write(data: Licensing) -> str:
 # tested the ''License'' class.
 
 if __name__ == "__main__":
+# dev:
+    INTERACTIVE_SESSION = True
+    INTERACTIVE_SESSION = False
+# :dev
+
     from hypothesis import (
         given,
         strategies as st
     )
 
 # dev:
-    yaml_data   = "gpl-3.0-only"
-    data_parsed = parse(yaml_data)
+    if INTERACTIVE_SESSION:
+        yaml_data   = "gpl-3.0-only"
+        data_parsed = parse(yaml_data)
 
-    print('---')
-    print(f"{yaml_data          = }")
-    print(f"{data_parsed        = }")
-    print(f"{write(data_parsed) = }")
+        print('---')
+        print(f"{yaml_data          = }")
+        print(f"{data_parsed        = }")
+        print(f"{write(data_parsed) = }")
 # :dev
 
 # -- Back to spec -- #

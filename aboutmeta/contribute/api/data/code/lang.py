@@ -91,6 +91,11 @@ class Lang(DataManager):
 # ----------- #
 
 if __name__ == '__main__':
+# dev:
+    INTERACTIVE_SESSION = True
+    INTERACTIVE_SESSION = False
+# :dev
+
     from random import Random
 
     from hypothesis import (
@@ -102,12 +107,13 @@ if __name__ == '__main__':
     import pytest
 
 # dev:
-    yaml_data = 'it   '
-    mydata    = Lang(std_id = yaml_data)
+    if INTERACTIVE_SESSION:
+        yaml_data = 'it   '
+        mydata    = Lang(std_id = yaml_data)
 
-    print('---')
-    print(f'{yaml_data = }')
-    print(f'{mydata    = }')
+        print('---')
+        print(f'{yaml_data = }')
+        print(f'{mydata    = }')
 # :dev
 
 # -- Legal spec -- #

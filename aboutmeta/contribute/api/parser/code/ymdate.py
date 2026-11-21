@@ -66,6 +66,11 @@ def write(data: datetime.date) -> str:
 # ----------- #
 
 if __name__ == "__main__":
+# dev:
+    INTERACTIVE_SESSION = True
+    INTERACTIVE_SESSION = False
+# :dev
+
     from hypothesis import (
         given,
         strategies as st
@@ -74,16 +79,17 @@ if __name__ == "__main__":
     import pytest
 
 # dev:
-    yaml_data   = "2025-06-27"
-    data_parsed = parse(yaml_data)
+    if INTERACTIVE_SESSION:
+        yaml_data   = "2025-06-27"
+        data_parsed = parse(yaml_data)
 
-    print('---')
-    print(f"{yaml_data          = }")
-    print(f"{data_parsed        = }")
-    print(f"{data_parsed.year   = }")
-    print(f"{data_parsed.month  = }")
-    print(f"{data_parsed.day    = }")
-    print(f"{write(data_parsed) = }")
+        print('---')
+        print(f"{yaml_data          = }")
+        print(f"{data_parsed        = }")
+        print(f"{data_parsed.year   = }")
+        print(f"{data_parsed.month  = }")
+        print(f"{data_parsed.day    = }")
+        print(f"{write(data_parsed) = }")
 # :dev
 
 # -- Data - Illegal spec -- #

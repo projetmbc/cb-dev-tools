@@ -290,6 +290,9 @@ if __name__ == '__main__':
 # dev:
     UPDATE_LICENSE_MEDATA = True
     UPDATE_LICENSE_MEDATA = False
+
+    INTERACTIVE_SESSION = True
+    INTERACTIVE_SESSION = False
 # :dev
 
     from random import Random
@@ -305,13 +308,14 @@ if __name__ == '__main__':
     if UPDATE_LICENSE_MEDATA:
         tool_update_license_json()
 
-    yaml_data = 'gpl 3.0 only'
+    if INTERACTIVE_SESSION:
+        yaml_data = 'gpl 3.0 only'
 
-    mydata = Licensing(spdx_id = yaml_data)
+        mydata = Licensing(spdx_id = yaml_data)
 
-    print('---')
-    print(f'{yaml_data = }')
-    print(f'{mydata    = }')
+        print('---')
+        print(f'{yaml_data = }')
+        print(f'{mydata    = }')
 # :dev
 
 # -- Legal weird license code -- #

@@ -234,6 +234,11 @@ def postprod(
 # ----------- #
 
 if __name__ == "__main__":
+# dev:
+    INTERACTIVE_SESSION = True
+    INTERACTIVE_SESSION = False
+# :dev
+
     from hypothesis import (
         given,
         strategies as st
@@ -292,24 +297,25 @@ if __name__ == "__main__":
             }
 
 # dev:
-    from pprint import pprint
+    if INTERACTIVE_SESSION:
+        from pprint import pprint
 
-    yaml_data = Path(__file__).name
+        yaml_data = Path(__file__).name
 
-    moke_amdata = MokeAMData(
-        flavour = 'fake-flavour',
-        parent  = Path('fake-dir'),
-    )
+        moke_amdata = MokeAMData(
+            flavour = 'fake-flavour',
+            parent  = Path('fake-dir'),
+        )
 
-    data_parsed = parse(
-        amdata = moke_amdata,
-        data   = yaml_data
-    )
+        data_parsed = parse(
+            amdata = moke_amdata,
+            data   = yaml_data
+        )
 
-    print("---")
-    print(f"{yaml_data          = }")
-    print(f"{data_parsed        = }")
-    print(f"{write(data_parsed) = }")
+        print("---")
+        print(f"{yaml_data          = }")
+        print(f"{data_parsed        = }")
+        print(f"{write(data_parsed) = }")
 # :dev
 
 # -- Back to spec -- #
