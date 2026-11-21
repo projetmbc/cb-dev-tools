@@ -44,11 +44,13 @@ _TAG_REF        = 'ref'
 
 ###
 # prototype::
-#     spdx_id : short \spdx identifier, such as ''"GPL-3.0-only"'',
-#               but flexible writings allowed like ''"gpl 3.0 only"'.
-#     name    : full license name like ''"GNU General Public License
-#               v3.0 only"''.
-#     url     : \url linking to the \spdx online license description.
+#     spdx_id: short \spdx identifier, such as ''"GPL-3.0-only"'',
+#         but flexible writings allowed like ''"gpl 3.0 only"'.
+#
+#     name: full license name like ''"GNU General Public License
+#          v3.0 only"''.
+#
+#     url: \url linking to the \spdx online license description.
 #
 #
 # note::
@@ -68,10 +70,9 @@ class Licensing(DataManager):
 ###
 # prototype::
 #     :action: mandatory validations of ''self.spec'' type, and
-#              derivation of the ''name'' and ''url'' \attrs from
-#              ''self.spdx_id'' and expand the identifier to its
-#              normalized form (e.g., ''"gpl 3.0 only"'' becomes
-#              ''"GPL-3.0-only"'').
+#         derivation of the ''name'' and ''url'' \attrs from
+#         ''self.spdx_id'' and expand the identifier to its normalized
+#         form (e.g., ''"gpl 3.0 only"'' becomes ''"GPL-3.0-only"'').
 ###
     def __post_init__(self) -> None:
         validate_type(
@@ -125,7 +126,7 @@ class Licensing(DataManager):
 
 ###
 # prototype::
-#     code : \lic code.
+#     code: \lic code.
 #
 #     :return: normalized code for data process.
 #
@@ -162,8 +163,9 @@ def _normalize_lic_code(code: str) -> str:
 
 ###
 # prototype::
-#     normal_ID       : invalid normalized \lic code.
-#     max_suggestions : maximum \nb of suggestions proposed.
+#     normal_ID: invalid normalized \lic code.
+#
+#     max_suggestions: maximum \nb of suggestions proposed.
 #
 #     :return: possible matches for a valid \spdx \lic code.
 ###

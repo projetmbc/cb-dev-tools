@@ -25,7 +25,7 @@ from aboutmeta.core.errors import ParsingError
 
 ###
 # prototype::
-#     data : \nbver provided in the \yaml file.
+#     data: \nbver provided in the \yaml file.
 #
 #     :return: ''semver.Version'' instance representing the
 #              \nbver.
@@ -46,7 +46,7 @@ def parse(data: str) -> Version:
 
 ###
 # prototype::
-#     data : ''semver.Version'' object.
+#     data: ''semver.Version'' object.
 #
 #     :return: \std \yaml version of the ''semver.Version''
 #              object.

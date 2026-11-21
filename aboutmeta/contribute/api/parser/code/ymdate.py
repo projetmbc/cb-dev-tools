@@ -90,6 +90,8 @@ if __name__ == "__main__":
         print(f"{data_parsed.month  = }")
         print(f"{data_parsed.day    = }")
         print(f"{write(data_parsed) = }")
+
+        print('---')
 # :dev
 
 # -- Data - Illegal spec -- #

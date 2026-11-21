@@ -15,12 +15,12 @@ from aboutmeta.core.errors import ParsingError
 #
 #     delims: list of opening and closing string delimiters used
 #         to enclose special data.
-
+#
 #     context: context of use (this text is for error messages).
 #
-#     data_on_right: if the value is ''True'', the 'enclosed' data
-#         must be at the end of the text, otherwise it must be at
-#         the beginning (no data can be inside the text).
+#     enclosed_on_right: if the value is ''True'', the 'enclosed'
+#         data must be at the end of the text, otherwise it must be
+#         at the beginning (no data can be inside the text).
 #
 #     :return: pair of variables ''(remaining, data)'' where
 #         ''remaining'' is the text obtained after removing the
@@ -75,7 +75,7 @@ def extract_group(
     content      : str,
     delims       : str | list[str],
     context      : str,
-    data_on_right: bool = True
+    enclosed_on_right: bool = True
 ) -> tuple[str, str | None]:
 # Two delimiters?
     if len(delims) != 2:
@@ -108,7 +108,7 @@ def extract_group(
             )
 
 # Good use of delimiters?
-    if data_on_right:
+    if enclosed_on_right:
         extrem_start = len(content) - len(closer)
         extrem_end   = len(content)
         extrem_char  = closer
@@ -251,22 +251,22 @@ if __name__ == '__main__':
 
         content       = 'We have {{data[--'
         delims        = ['{{', '[--']
-        data_on_right = True
+        enclosed_on_right = True
 
         content       = '{{Data[-- before'
         delims        = ['{{', '[--']
-        data_on_right = False
+        enclosed_on_right = False
 
         print(f'{content      = }')
         print(f'{delims       = }')
-        print(f'{data_on_right = }')
+        print(f'{enclosed_on_right = }')
 
         print()
         print(
-            f'extract_group: {extract_group(content, delims, "DEBUGGING", data_on_right)}'
+            f'extract_group: {extract_group(content, delims, "DEBUGGING", enclosed_on_right)}'
         )
 
-        exit()
+        print('---')
 # :dev
 
 # -- Extract groups - Legal spec (data on left) -- #
@@ -294,7 +294,7 @@ if __name__ == '__main__':
             ),
         ]),
     )
-    def test_extract_legal_spec_data_on_right(full_data) -> None:
+    def test_extract_legal_spec_enclosed_on_right(full_data) -> None:
         content, wanted_tuple, delims = full_data
 
         assert extract_group(
@@ -303,7 +303,7 @@ if __name__ == '__main__':
             context = "LEGAL SPEC DATA ON LEFT",
         ) == wanted_tuple
 
-    test_extract_legal_spec_data_on_right()
+    test_extract_legal_spec_enclosed_on_right()
 
 # -- Extract groups - Legal spec (data on right) -- #
     @given(
@@ -330,17 +330,17 @@ if __name__ == '__main__':
             ),
         ]),
     )
-    def test_extract_legal_spec_data_on_right(full_data) -> None:
+    def test_extract_legal_spec_enclosed_on_right(full_data) -> None:
         content, wanted_tuple, delims = full_data
 
         assert extract_group(
             content      = content,
             delims       = delims,
             context      = "LEGAL SPEC DATA ON RIGHT",
-            data_on_right = False
+            enclosed_on_right = False
         ) == wanted_tuple
 
-    test_extract_legal_spec_data_on_right()
+    test_extract_legal_spec_enclosed_on_right()
 
 # -- Extract groups - Illegal delims -- #
     @given(

@@ -30,7 +30,7 @@ from aboutmeta.specs.data.acronym import Acronym
 
 ###
 # prototype::
-#     data : acronym \spec provided in the \yaml file.
+#     data: acronym \spec provided in the \yaml file.
 #
 #     :return: ''Acronym'' instance representing the acronym.
 ###
@@ -46,7 +46,7 @@ def parse(data: str) -> Acronym:
 
 ###
 # prototype::
-#     data : ''Acronym'' object.
+#     data: ''Acronym'' object.
 #
 #     :return: std \yaml version of the ''Acronym'' object.
 ###

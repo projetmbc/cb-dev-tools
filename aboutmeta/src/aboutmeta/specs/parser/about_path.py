@@ -104,10 +104,11 @@ from aboutmeta.specs.data.toc_path import (
 
 ###
 # prototype::
-#     amdata : ''AMData'' instance needed to know the folder
-#              of the path::''about.yaml'' file.
-#     data   : path \spec or path search pattern provided in
-#              the \yaml file.
+#     amdata: ''AMData'' instance needed to know the folder of
+#         the path::''about.yaml'' file.
+#
+#     data: path \spec or path search pattern provided in the
+#         \yaml file.
 #
 #     :return: ''TOCPath'' instance representing the "extended"
 #              path.
@@ -130,11 +131,11 @@ def parse(
 
 ###
 # prototype::
-#     data : ''TOCPath'' object.
+#     data: ''TOCPath'' object.
 #
 #     :return: either a string raw path, or a single-key \dict
-#              giving the pattern kind as a key, and the pattern
-#              itself as the \val.
+#         giving the pattern kind as a key, and the pattern itself
+#         as the \val.
 ###
 def write(data: TOCPath) -> str | dict[str, str]:
     return data.spec
@@ -149,17 +150,16 @@ TAG_POSTPROD_ABOUT_PATH_FILES = '__POSTPROD_ABOUT_PATH_FILES__'
 
 ###
 # prototype::
-#     amdata : :see: parse
-#     data   : list of ''TOCPath'' objects.
+#     amdata: :see: parse
 #
-#     :return: \dict with single key
-#              ''TAG_POSTPROD_ABOUT_PATH_FILES'' and \val the
-#              list of raw and winning pattern absolute paths,
-#              validating their existence.
-#              Note that for each folder found, an ''AMData''
-#              instance is invoked to search for an
-#              path::''about.yaml'' file to use for subsequent
-#              searches.
+#     data: list of ''TOCPath'' objects.
+#
+#     :return: \dict with single key ''TAG_POSTPROD_ABOUT_PATH_FILES''
+#         and \val th list of raw and winning pattern absolute paths,
+#         validating their existence.
+#         Note that for each folder found, an ''AMData'' instance is
+#         invoked to search for an path::''about.yaml'' file to use
+#         for subsequent searches.
 #
 #
 # important::

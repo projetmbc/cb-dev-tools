@@ -64,7 +64,7 @@ from aboutmeta.specs.data.person import Person
 
 ###
 # prototype::
-#     data : one person provided in the \yaml file.
+#     data: one person provided in the \yaml file.
 #
 #     :return: ''Person'' instance representing the person.
 ###
@@ -80,7 +80,7 @@ def parse(data: str) -> Person:
 
 ###
 # prototype::
-#     data : ''Person'' object.
+#     data: ''Person'' object.
 #
 #     :return: \std \yaml version of the ''Person'' object.
 ###

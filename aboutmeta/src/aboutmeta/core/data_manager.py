@@ -135,9 +135,8 @@ class DataPB:
 #
 #     error_msg: :see: self._error_printed_stored
 #
-#
-#     :action: print and store a message made with ''data'' and
-#         ''error_msg''.
+#     :action: print log message and store one formatted with
+#         ''data'' and ''error_msg''.
 #
 #     :see: self._error_printed_stored
 ###
@@ -158,8 +157,9 @@ class DataPB:
 #     _exception: exception instance caught by a validation or
 #         normalization process.
 #
-#     :action: print and store a text showing type and message
-#         of the exception, and the problematic ''data''.
+#     :action: print a log message and store one containing the
+#         type and message of the caught exception, along with
+#         the problematic ''data''.
 #
 #     :see: self._error_printed_stored
 ###

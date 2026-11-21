@@ -82,6 +82,8 @@ if __name__ == "__main__":
         print(f"{data_parsed.prerelease = }")
         print(f"{data_parsed.build      = }")
         print(f"{write(data_parsed)     = }")
+
+        print('---')
 # :dev
 
 # -- Data - Illegal spec -- #

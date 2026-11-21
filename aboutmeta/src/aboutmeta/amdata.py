@@ -472,7 +472,7 @@ class AMData:
             self.yaml_file.read_text()
         )
 
-        if not type(self._yaml_raw_data) == dict:
+        if type(self._yaml_raw_data) != dict:
             dtype = type(self._yaml_raw_data).__name__
 
             raise ValueError(
@@ -666,7 +666,7 @@ class AMData:
 
 # Only string allowed!
         if parser_module == str:
-            if not type(raw_data) == str:
+            if type(raw_data) != str:
                 raise ParsingError(
                     f'{raw_data!r} is not a string.'
                 )
@@ -690,6 +690,7 @@ class AMData:
                 _exception     = ParsingError,
                 fmt_str        = 'Invalid data {raw_data!r}',
                 _sub_exception = e,
+                raw_data       = raw_data,
             )
 
 ###
@@ -974,7 +975,7 @@ if __name__ == "__main__":
 
 # What I test.
     TEST_WANTED = [
-        # 1, # Only project.
+        1, # Only project.
         2, # Only atoc.
     ]
 

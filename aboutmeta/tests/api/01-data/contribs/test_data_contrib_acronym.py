@@ -114,7 +114,3 @@ def test_illegal_spec(yaml_data: str) -> None:
 def test_illegal_data_type(yaml_data: object) -> None:
     with pytest.raises(TypeError) as e:
         Acronym(spec = yaml_data)
-
-
-
-# TEST

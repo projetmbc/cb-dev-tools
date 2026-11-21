@@ -28,9 +28,11 @@ TAG__DEF_OPEN, TAG__DEF_CLOSE = '[]'
 
 ###
 # prototype::
-#     spec  : \spec of an acronym using brackets.
-#     short : acronym alone.
-#     desc  : full \def of acronym without any bracket.
+#     spec: \spec of an acronym using brackets.
+#
+#     short: acronym alone.
+#
+#     desc: full \def of acronym without any bracket.
 #
 #
 # note::
@@ -45,8 +47,8 @@ class Acronym(DataManager):
 ###
 # prototype::
 #     :action: mandatory validations of ''self.spec'' type, and
-#              derivation of the ''short'' and ''desc'' \attrs
-#              from ''self.spec''.
+#         derivation of the ''short'' and ''desc'' \attrs from
+#         ''self.spec''.
 ###
     def __post_init__(self) -> None:
         validate_type(

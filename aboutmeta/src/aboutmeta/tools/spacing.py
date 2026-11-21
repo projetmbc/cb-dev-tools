@@ -75,7 +75,7 @@ def single_spaces(text: str) -> str:
 if __name__ == '__main__':
 # dev:
     INTERACTIVE_SESSION = True
-    INTERACTIVE_SESSION = False
+    # INTERACTIVE_SESSION = False
 # :dev
 
     from random import Random
@@ -110,7 +110,7 @@ if __name__ == '__main__':
         print(f'{txt                = }')
         print(f'{single_spaces(txt) = }')
 
-        exit()
+        print('---')
 # :dev
 
 # -- Tools for tests -- #

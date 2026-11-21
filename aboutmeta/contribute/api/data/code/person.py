@@ -109,10 +109,10 @@ class Person(DataManager):
 
 # Surname.
         self.surname, self.particle = extract_group(
-            content      = titles[-1].strip(),
-            delims       = DELIMS_PARTICLE,
-            context      = 'surname',
-            data_on_left = False
+            content       = titles[-1].strip(),
+            delims        = DELIMS_PARTICLE,
+            context       = 'surname',
+            enclosed_on_right = False
         )
 
 # We can update the ''spec'' attribute.
