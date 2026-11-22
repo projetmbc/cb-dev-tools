@@ -14,7 +14,7 @@ Each parser must accurately and concisely describe the data type it handles. Thi
 ~~~
 
 
-If a data structure requires normalization, validation, and/or post-processing, describe these processes concisely within dedicated final `[[normalize]]`, `[[validate]]`, and either `[[post-prod]]` sections, where `[[post-prod]]` and `[[post-prod+]]` correspond to non-returning and returning post-processing respectively. Here is dummy example.
+If a data structure requires normalization, validation, and/or post-processing, describe these processes concisely within dedicated final `[[normalize]]`, `[[validate]]` and `[[post-prod]]`. Here is dummy example.
 
 
 <!-- TNSDOC - NORMALIZE/VALIDATE SECTIONS - START -->
@@ -41,4 +41,11 @@ If a data structure requires normalization, validation, and/or post-processing, 
 <!-- TNSDOC - NORMALIZE/VALIDATE SECTIONS - END -->
 
 
-> ***WARNING.*** *The description of the parsed data is intended for `about.yaml` end users, not `Python` developers.*
+The documentation must provide enough practical information for a non-expert end user, or for a `block` and `flavour` contributor. This requires documenting the following details.
+
+  * Parsed data: specify its type, useful attributes, and/or its string representation where relevant.
+
+  * Post-processing: explain what is returned as key-value pairs (as this is how the end user will interact with post-processed data). If post-processing returns nothing, state this explicitly.
+
+
+> ***WARNING.*** *The description of the parsed data is intended for `about.yaml` end users, and `block` or `flavour` contributors, not `Python` experts.*

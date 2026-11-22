@@ -7,7 +7,55 @@ aboutmeta - TODO
 
 unit tests locaux
 
-    --> integration du nouveau syst de teste des block : struct + data
+    --> integration du nouveau syst de teste des block : struct + Data
+
+        + /about_path.py : attribute : voir comment rédiger (pb de clé pour les post, et d'attributs pour les données, des section dédiées ???)
+               > spec
+               > parent
+               > kind
+               > pattern
+
+        + /acronym.py : attribute
+               > spec
+               > short
+               > desc
+
+        + /lang.py : attribute
+               > std_id
+               > name
+               > territory
+
+        + /licensing.py : attribute
+               > spdx_id
+               > name
+               > url
+
+        + /person.py : attribute
+
+               > spec
+               > surname
+               > particle
+               > firstnames
+               > email
+               > affiliation
+
+        + /sem_version.py
+               > major (int) : version majeure (ex. 3 dans 3.4.5-pre.2+build.4).
+               > minor (int) : version mineure (ex. 4).
+               > minor (int) : version mineure (ex. 4).
+               > patch (int) : version corrective / patch (ex. 5).
+               > prerelease (str | None) : identifiant de pré-version après - (ex. "pre.2"), ou None s'il n'y en a pas.
+               > build (str | None) : métadonnée de build après + (ex. "build.4"), ou None s'il n'y en a pas.
+
+        + /url.py : attribute
+
+               > url
+
+        + /ymdate.py
+               > year : l'année sous forme d'entier (int), entre MINYEAR (1) et MAXYEAR (9999).
+               > month : le mois sous forme d'entier (int), de 1 à 12.
+               > day : le jour du mois sous forme d'entier (int), de 1 jusqu'au nombre de jours du mois/année concernés.
+
 
     --> ./aboutmeta/amdata.py
 
