@@ -14,7 +14,7 @@ Each parser must accurately and concisely describe the data type it handles. Thi
 ~~~
 
 
-If a data structure requires normalization, validation, and/or post-processing, describe these processes concisely within dedicated final `[[normalize]]`, `[[validate]]` and `[[post-prod]]`. Here is dummy example.
+If a data structure requires normalization, validation, and/or post-processing, describe these processes concisely within dedicated final `[[normalize]]`, `[[validate]]` and `[[post-prod]]` sections. Here is dummy example.
 
 
 <!-- TNSDOC - NORMALIZE/VALIDATE SECTIONS - START -->

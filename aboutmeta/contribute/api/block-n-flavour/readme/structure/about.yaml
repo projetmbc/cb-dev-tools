@@ -1,6 +1,6 @@
 atoc:
-  - ../../../readme-common/changes-folder.md
-  - ../../../readme-common/status-folder.md
+  - ../../../readme-src-common/changes-folder.md
+  - ../../../readme-src-common/status-folder.md
   - block.md
   - flavour.md
   - tests.md
