@@ -7,9 +7,15 @@ aboutmeta - TODO
 
 unit tests locaux
 
-./aboutmeta/core/data_manager.py
-./aboutmeta/amdata.py
+    --> integration du nouveau syst de teste des block : struct + data
 
+    --> ./aboutmeta/amdata.py
+
+
+> ---------------------------- <
+
+auto-doc
+un fichir yaml associe un fichier, un identifiant (cf ID -START et ID - END) et une xtraction de code : pour cas ou extraction partielle, on passe via des regexs
 
 > ---------------------------- <
 

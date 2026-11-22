@@ -361,7 +361,7 @@ class Person(DataManager):
 if __name__ == '__main__':
 # dev:
     INTERACTIVE_SESSION = True
-    INTERACTIVE_SESSION = False
+    # INTERACTIVE_SESSION = False
 # :dev
 
     from random import Random

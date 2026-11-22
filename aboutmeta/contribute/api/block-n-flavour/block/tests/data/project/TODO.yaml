@@ -1,0 +1,15 @@
+desc: ...
+
+date *: ymdate
+acronym *: acronym
+codename | doctitle *: str
+author: person | list(.)
+contrib | contribs *: . | list(.)
+urls *:
+  home, dev, issues *: url
+langs *:
+  doc, manual *: lang
+require *:
+  - str
+keywords *:
+  - .

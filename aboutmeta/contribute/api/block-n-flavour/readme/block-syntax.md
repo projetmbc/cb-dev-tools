@@ -1,2 +1,2 @@
-Block specification syntax
---------------------------
+Syntax for block specifications
+-------------------------------

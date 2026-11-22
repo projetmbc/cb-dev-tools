@@ -9,13 +9,13 @@ Here's how to define a main block.
 
   1. The structure of the `YAML` file mirrors the structure that users will need to use within the main block.
 
-  1. You can use two types of keys.
+  1. You can use two types of keys where **`key-name` follows the same rules as non-private Python variable names**.
 
       - `key-name` indicates a mandatory key.
 
       - `key-name *` indicates an optional key.
 
-  1. Rather than providing actual user data values, you must specify the parsers to use. Here is a brief overview. **See the 'Syntax for Block Specifications' section for a complete description and useful guidelines.**
+  1. Rather than providing actual user data values, you must specify the parsers to use. Here is a brief overview. **See the 'Syntax for block specifications' section for a complete description and useful guidelines.**
 
       - For isolated data, simply specify a parser, with the option of using `str` if no parsing is required (meaning `str` keeps the data verbatim as a raw string).
 

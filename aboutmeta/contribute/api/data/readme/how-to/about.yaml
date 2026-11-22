@@ -3,6 +3,6 @@ atoc:
   - derivate-attrs.md
   - normalize.md
   - validate.md
-  - ../../../readme-dev-common/how-to/add-tools.md
-  - ../../../readme-dev-common/comments/title.md
+  - ../../../readme-dev-common/python/how-to/add-tools.md
+  - ../../../readme-dev-common/python/comments/title.md
   - comments/

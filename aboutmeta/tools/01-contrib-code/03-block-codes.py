@@ -111,7 +111,6 @@ def build_parsers_needed(
             )
 
 
-
 def code_amdata_use(module_name):
     if module_name == 'str':
         return FALSE_NONE
