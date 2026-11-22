@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-
-
-UPADTE-NEEDED
-
 from pathlib import Path
 import              sys
 
@@ -21,7 +17,7 @@ from cbutils.pathplus import *
 NUM_TESTS = 3
 
 CONTEXT  = 'block'
-MSG_CTXT = f'{CONTEXT} contrib tests'
+MSG_CTXT = f'{CONTEXT} contrib tests of structure'
 
 
 THIS_DIR    = Path(__file__).parent
@@ -35,9 +31,9 @@ CONTRIB_DIR = (
     / 'block-n-flavour' / CONTEXT
 )
 
-CONTRIB_TESTS_DIR = CONTRIB_DIR / 'tests'
+CONTRIB_TESTS_DIR = CONTRIB_DIR / 'tests' / 'structure'
 
-TESTS_DIR = PROJECT_DIR / 'tests' / 'api' / f'{NUM_TESTS:02}-{CONTEXT}' / 'contribs'
+TESTS_DIR = PROJECT_DIR / 'tests' / 'api' / f'{NUM_TESTS:02}-{CONTEXT}-structure' / 'contribs'
 
 
 # ----------------- #
