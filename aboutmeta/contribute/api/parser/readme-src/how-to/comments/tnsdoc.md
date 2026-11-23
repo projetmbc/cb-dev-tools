@@ -26,30 +26,17 @@ Each parser must accurately and concisely describe the data type it handles. Thi
 ~~~
 
 
+Here is what each section is for.
+
+  * `[[input]]` describes the data expected in the `YAML` metadata file.
+
+  * `[[output]]` explains how to use the parsed data, detailing the role of public attributes as well as any usable string representation.
+
+  * `[[normalize]]` explains the normalization steps applied to the data.
+
+  * `[[validate]]` outlines the overall validation process.
+
+  * `[[post-prod]]` explains what is returned as key-value pairs (since this is how the end user interacts with post-processed data). If post-processing returns nothing, state this explicitly.
 
 
-
-
-
-XXXX
-
-
-Voici l'utilité de chaque section.
-
-  * `[[input]]` pour décrire des données dans le code YAML
-
-  * `[[output]]` pour indiqyer comment utiliser les données digérées par le parser,
-
-If a data structure requires normalization, validation, and/or post-processing, describe these processes concisely within dedicated final `[[normalize]]`, `[[validate]]` and `[[post-prod]]` sections. Here is dummy example.
-
-
-
-
-The documentation must provide enough practical information for a non-expert end user, or for a `block` and `flavour` contributor. This requires documenting the following details.
-
-  * Parsed data: specify its type, useful attributes, and/or its string representation where relevant.
-
-  * Post-processing: explain what is returned as key-value pairs (as this is how the end user will interact with post-processed data). If post-processing returns nothing, state this explicitly.
-
-
-> ***WARNING.*** *The description of the parsed data is intended for `about.yaml` end users, and `block` or `flavour` contributors, not `Python` experts.*
+> ***IMPORTANT.*** *The preceding documentation sections must provide sufficient practical information for both non-expert end users of `about.yaml`, and also `block` and `flavour` contributors.*
