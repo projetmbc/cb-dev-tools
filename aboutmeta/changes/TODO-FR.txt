@@ -39,28 +39,31 @@ unit tests locaux
 
     --> integration du nouveau syst de teste des block : struct + Data
 
-        + /about_path.py : attribute : voir comment rédiger (pb de clé pour les post, et d'attributs pour les données, des section dédiées ???)
+
+    --> pasresr docs: [[input]] / [[output]]
+
+        + /about_path.py
                > spec
                > parent
                > kind
                > pattern
 
-        + /acronym.py : attribute
+        + /acronym.py
                > spec
                > short
                > desc
 
-        + /lang.py : attribute
+        + /lang.py
                > std_id
                > name
                > territory
 
-        + /licensing.py : attribute
+        + /licensing.py
                > spdx_id
                > name
                > url
 
-        + /person.py : attribute
+        + /person.py
 
                > spec
                > surname
@@ -77,7 +80,7 @@ unit tests locaux
                > prerelease (str | None) : identifiant de pré-version après - (ex. "pre.2"), ou None s'il n'y en a pas.
                > build (str | None) : métadonnée de build après + (ex. "build.4"), ou None s'il n'y en a pas.
 
-        + /url.py : attribute
+        + /url.py
 
                > url
 

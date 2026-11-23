@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 ###
+# [[input]]
+#
 # The origin of an acronym can be explained using a tiny \dsl.
 # For example, ''[A::@-]bout [Desc]ription'' explains the
 # choice of the acronym "@-Desc" for "About Description".
@@ -14,6 +16,11 @@
 #
 #     1) Finally, ''::'' in ''[A::@-]'' indicates the use of
 #     "@-" instead of "A" in the acronym.
+#
+#
+# [[output]]
+#
+# XXXXXXXXXXXXXX
 ###
 
 
