@@ -10,7 +10,7 @@
 #
 #     1) Then, we indicate inside brackets the parts to keep
 #     for the acronym. Using ''[A]bout [Desc]ription'' will
-#     produce the acronym "Adesc".
+#     produce the acronym "ADesc".
 #
 #     1) Finally, ''::'' in ''[A::@-]'' indicates the use of
 #     "@-" instead of "A" in the acronym.

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 ###
+# [[input]]
+#
 # This parser processes lists of python::''TOCPath''-like \specs.
 # Paths can be defined relative to a parent folder using a raw
 # path, a glob pattern, or a regex pattern, with optional support
@@ -35,6 +37,11 @@
 #     more efficient.
 #
 #
+# [[output]]
+#
+# XXXXXXXXXXXXXX
+#
+#
 # [[validate]]
 #
 # Here are the validation steps performed, depending on the kind
@@ -54,10 +61,10 @@
 #     when using a standalone python::''TOCPath'' object).
 #
 #
-# [[post-prod+]]
+# [[post-prod]]
 #
-# The post-processing returns a \dict with only one key
-# ''TAG_POSTPROD_ABOUT_PATH_FILES'' associated to the list of
+# The post-processing returns a single-key \dict with key
+# ''TAG_POSTPROD_ABOUT_PATH_FILES'' and value the list of
 # "winning" absolute paths build sequentially as follows.
 #
 #     1) **Raw path file:** a raw path pointing to an existing

@@ -5,6 +5,36 @@ aboutmeta - TODO
 
 > ---------------------------- <
 
+--------
+:update:
+--------
+
+[[:doc:]]      ?????
+??? The main \readme file only provides a short overview of the \proj, focusing its examples on digital project management.
+
+??? The technical \docs are automatically converted into \readme.
+
+
+-----
+:new:
+-----
+
+[[:doc:]]      ?????
+The \docs and manual can be easily translated in the path::''contrib/translate'' folder.
+
+
+--------
+:fordev:
+--------
+
+[[:tech:]]      ?????
+????   Full \docs and \readme files: the \contrib \docs are now automatically integrated (this avoids \doc overhead when updating a \contrib). This implies precise \doc in all \contribs.
+
+
+
+
+> ---------------------------- <
+
 unit tests locaux
 
     --> integration du nouveau syst de teste des block : struct + Data
@@ -58,6 +88,95 @@ unit tests locaux
 
 
     --> ./aboutmeta/amdata.py
+
+
+> ---------------------------- <
+
+src publié sans les tests locaux !!
+
+sol Gemini:
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mon-package"
+version = "0.1.0"
+
+[tool.hatch.build.hooks.custom]
+path = "hatch_build.py"
+
+# Exclure les originaux du wheel/sdist
+[tool.hatch.build.targets.wheel]
+packages = ["src/mon_package"]
+exclude = ["src/mon_package/**/*.py"]
+
+# Inclure les fichiers générés sans la section tests/main
+[tool.hatch.build.targets.wheel.force-include]
+"build/stripped_src/mon_package" = "mon_package"
+
+
++
+
+
+# hatch_build.py
+import subprocess
+from hatchling.builders.hooks.plugin.interface import BuildHookInterface
+
+class StripDevHook(BuildHookInterface):
+    def initialize(self, version, build_data):
+        subprocess.run(
+            ["strip-dev-sections", "--src", "src/mon_package", "--out", "build/stripped_src/mon_package"],
+            cwd=self.root,
+            check=True,
+        )
+
+
++
+
+
+# src/dev_stripper/cli.py
+import argparse
+from pathlib import Path
+import shutil
+
+
+def strip_content(text: str, marker: str = "# -- TESTS -- #") -> str:
+    idx = text.find(marker)
+    if idx == -1:
+        return text
+
+    line_start = text.rfind("\n", 0, idx) + 1
+    prev_end = text.rfind("\n", 0, max(0, line_start - 1))
+    prev_line = text[prev_end + 1 : max(0, line_start - 1)].strip()
+    cut_at = (prev_end + 1) if prev_line == "# ----------- #" else line_start
+    return text[:cut_at].rstrip() + "\n"
+
+
+def strip_tree(src_dir: Path, out_dir: Path, marker: str = "# -- TESTS -- #") -> None:
+    if out_dir.exists():
+        shutil.rmtree(out_dir)
+
+    for py_file in src_dir.rglob("*.py"):
+        rel = py_file.relative_to(src_dir)
+        target = out_dir / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        cleaned = strip_content(py_file.read_text(encoding="utf-8"), marker=marker)
+        target.write_text(cleaned, encoding="utf-8")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Strip dev/test sections from Python files.")
+    parser.add_argument("--src", required=True, type=Path)
+    parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--marker", default="# -- TESTS -- #")
+    args = parser.parse_args()
+    strip_tree(args.src, args.out, marker=args.marker)
+
+
+if __name__ == "__main__":
+    main()
 
 
 > ---------------------------- <
@@ -187,34 +306,6 @@ def simulate_code_session(code_lines):
 Doc
 
     + post prod : besoin de penser au cas de différentes clés utilisé et du besoin de faire le lien avec la desc technique !!!
-
-
-> ---------------------------- <
-
---------
-:update:
---------
-
-[[:doc:]]      ?????
-??? The main \readme file only provides a short overview of the \proj, focusing its examples on digital project management.
-
-??? The technical \docs are automatically converted into \readme.
-
-
------
-:new:
------
-
-[[:doc:]]      ?????
-The \docs and manual can be easily translated in the path::''contrib/translate'' folder.
-
-
---------
-:fordev:
---------
-
-[[:tech:]]      ?????
-????   Full \docs and \readme files: the \contrib \docs are now automatically integrated (this avoids \doc overhead when updating a \contrib). This implies precise \doc in all \contribs.
 
 
 > ---------------------------- <
