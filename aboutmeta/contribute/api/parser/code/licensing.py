@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 ###
+# [[input]]
+#
 # A \lic is identified using identifiers from the cf::{''SPDX''
 # SPDX License List ; https://spdx.org/licenses/}, with a certain
 # degree of flexibility. For example, you can type ''gpl 3.0+''
@@ -10,7 +12,20 @@
 #     1) Spaces can replace hyphens.
 #
 #     1) Letter case being ignored, you can type everything in
-#        lowercase for efficiency.
+#     lowercase for efficiency.
+#
+#
+# [[output]]
+#
+# The parsed data exposes the following \attrs.
+#
+#     * spdx_id is the short \spdx identifier, such as
+#     ''"GPL-3.0-only"''.
+#
+#     * name is the full license name, such as ''"GNU General Public
+#     License v3.0 only"''.
+#
+#     * url is the \url linking to the \spdx online license \desc.
 ###
 
 

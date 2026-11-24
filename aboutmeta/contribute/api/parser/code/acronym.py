@@ -20,7 +20,15 @@
 #
 # [[output]]
 #
-# XXXXXXXXXXXXXX
+# The parsed data exposes the following \attrs.
+#
+#     * ''spec'' is the acronym \spec, such as ''[A::@-]bout
+#     [Desc]ription''.
+#
+#     * ''short'' is the acronym itself, such as ''@-Desc''.
+#
+#     * ''desc'' is the full form of the acronym, such as
+#     ''About Description''.
 ###
 
 

@@ -48,48 +48,6 @@ unit tests locaux
                > kind
                > pattern
 
-        + /acronym.py
-               > spec
-               > short
-               > desc
-
-        + /lang.py
-               > std_id
-               > name
-               > territory
-
-        + /licensing.py
-               > spdx_id
-               > name
-               > url
-
-        + /person.py
-
-               > spec
-               > surname
-               > particle
-               > firstnames
-               > email
-               > affiliation
-
-        + /sem_version.py
-               > major (int) : version majeure (ex. 3 dans 3.4.5-pre.2+build.4).
-               > minor (int) : version mineure (ex. 4).
-               > minor (int) : version mineure (ex. 4).
-               > patch (int) : version corrective / patch (ex. 5).
-               > prerelease (str | None) : identifiant de pré-version après - (ex. "pre.2"), ou None s'il n'y en a pas.
-               > build (str | None) : métadonnée de build après + (ex. "build.4"), ou None s'il n'y en a pas.
-
-        + /url.py
-
-               > url
-
-        + /ymdate.py
-               > year : l'année sous forme d'entier (int), entre MINYEAR (1) et MAXYEAR (9999).
-               > month : le mois sous forme d'entier (int), de 1 à 12.
-               > day : le jour du mois sous forme d'entier (int), de 1 jusqu'au nombre de jours du mois/année concernés.
-
-
     --> ./aboutmeta/amdata.py
 
 

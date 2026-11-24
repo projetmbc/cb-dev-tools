@@ -46,7 +46,7 @@ _TAG_REF        = 'ref'
 #     name: full license name like ''"GNU General Public License
 #          v3.0 only"''.
 #
-#     url: \url linking to the \spdx online license description.
+#     url: \url linking to the \spdx online license \desc.
 #
 #
 # note::

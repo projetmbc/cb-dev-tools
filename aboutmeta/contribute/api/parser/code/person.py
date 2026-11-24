@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 ###
+# [[input]]
+#
 # Information related to a person is indicated as follows.
 #
 #     + **Title (mandatory):** ''Krivine'' and ''Jean, Louis,
@@ -19,6 +21,27 @@
 #     ''title [email] (institute)'' like in ''Ada, Lovelace
 #     [ada.babbage.computer@paper.org] (Victorian Applied
 #     Mechanical Informatic Institute)''.
+#
+#
+# [[output]]
+#
+# The parsed data exposes the following \attrs.
+#
+#     * ''spec'' is the full person \spec.
+#
+#     * ''surname'' is the surname without any particle.
+#
+#     * ''particle'' is the surname particle, or ''None'' if
+#     no particle is used.
+#
+#     * ''firstnames'' is the list of first names, or ''None''
+#     if no first names is provided.
+#
+#     * ''email'' is the email address, or ''None'' if no email
+#     is provided.
+#
+#     * ''affiliation'' is the affiliation address, or ''None''
+#     if no affiliation is provided.
 #
 #
 # [[normalize]]

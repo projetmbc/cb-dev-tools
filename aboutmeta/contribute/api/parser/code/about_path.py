@@ -3,10 +3,12 @@
 ###
 # [[input]]
 #
-# This parser processes lists of python::''TOCPath''-like \specs.
-# Paths can be defined relative to a parent folder using a raw
-# path, a glob pattern, or a regex pattern, with optional support
-# for recursive searches. Here is how each option works.
+# XXXXXX
+#
+#
+#
+#
+# This parser processes lists of python::''TOCPath''-like \specs. Paths can be defined relative to a parent folder using a raw path, a glob pattern, or a regex pattern, with optional support for recursive searches. Here is how each option works.
 #
 #     1) **Raw paths**must use the \unix path separator (''/''),
 #        similar to a URL format.
@@ -27,8 +29,9 @@
 #
 #
 # tip::
-#     ''g'', ''rg'', ''r'' and ''rr'' are shortcuts for ''glob'',
-#     ''r-glob'', ''regex'' and ''r-regex'' respectively.
+#     ''g'' and ''rg'' are shortcuts for ''glob'' and ''r-glob'',
+#     respectively. Similarly, there are ''r'' and ''rr'' for
+#     ''regex'' and ''r-regex''.
 #
 #
 # caution::
@@ -158,7 +161,7 @@ TAG_POSTPROD_ABOUT_PATH_FILES = '__POSTPROD_ABOUT_PATH_FILES__'
 #     data: list of ''TOCPath'' objects.
 #
 #     :return: \dict with single key ''TAG_POSTPROD_ABOUT_PATH_FILES''
-#         and \val th list of raw and winning pattern absolute paths,
+#         and \val the list of raw and winning pattern absolute paths,
 #         validating their existence.
 #         Note that for each folder found, an ''AMData'' instance is
 #         invoked to search for an path::''about.yaml'' file to use

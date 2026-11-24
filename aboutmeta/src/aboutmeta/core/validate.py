@@ -35,8 +35,8 @@ def validate_type(
             types_desc = f'{expected_types.__name__!r}'
 
         raise TypeError(
-            f'None {types_desc} '
-            f'{var_name} value: value = {value!r}.'
+            f'Not a {types_desc} type, see: '
+            f'{var_name} = {value!r}.'
         )
 
 

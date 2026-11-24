@@ -39,4 +39,4 @@ Here is what each section is for.
   * `[[post-prod]]` explains what is returned as key-value pairs (since this is how the end user interacts with post-processed data). If post-processing returns nothing, state this explicitly.
 
 
-> ***IMPORTANT.*** *The preceding documentation sections must provide sufficient practical information for both non-expert end users of `about.yaml`, and also `block` and `flavour` contributors.*
+> ***IMPORTANT.*** *The documentation sections must provide sufficient practical information for both non-expert end users of `about.yaml`, and also `block` and `flavour` contributors.*

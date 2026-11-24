@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 ###
+# [[input]]
+#
 # A \lang is indicated using an cf::''ISO 639 standard ;
 # https://en.wikipedia.org/wiki/ISO_639'' short identifier, then,
 # if necessary, adding a country using a cf::''ISO 3166
@@ -12,6 +14,18 @@
 # tip::
 #     You can use ''_'' instead of ''-''. This is useful when
 #     pasting external text or more efficient when typing.
+#
+#
+# [[output]]
+#
+# The parsed data exposes the following \attrs.
+#
+#     * ''std_id'' is the \std \lang identifier, such as ''"en-GB"''.
+#
+#     * ''name'' is the full \lang name, such as ''"English"''.
+#
+#     * ''territory'' is the \lang territory, such as ''"Great
+#     Britain"''.
 ###
 
 
