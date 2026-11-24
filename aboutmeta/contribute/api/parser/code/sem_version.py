@@ -4,8 +4,8 @@
 # [[input]]
 #
 # Semantic version \nbs must comply with cf::''Semantic
-# Versioning ; https://semver.org/'' like nbver::''1.0.0'',
-# nbver::''0.0.0-beta.1'', and nbver::''0.3.1-beta.1+build.5''.
+# Versioning ; https://semver.org/'' like yaml::''1.0.0'',
+# yaml::''0.0.0-beta.1'', and yaml::''0.3.1-beta.1+build.5''.
 #
 #
 # [[output]]

@@ -5,21 +5,21 @@
 #
 # Information related to a person is indicated as follows.
 #
-#     + **Title (mandatory):** ''Krivine'' and ''Jean, Louis,
-#     Krivine'' are legal titles for a person (the number of
-#     first names is unlimited). It is possible to specify a
-#     particle, as in ''Augustus, {de} Morgan''.
+#     + **Title (mandatory):** yaml::''Krivine'' and yaml::''Jean,
+#     Louis, Krivine'' are legal titles for a person (the number
+#     of first names is unlimited). It is possible to specify a
+#     particle, as in yaml::''Augustus, {de} Morgan''.
 #
-#     + **Email address (optional):** ''Jean, Louis, Krivine
+#     + **Email address (optional):** yaml::''Jean, Louis, Krivine
 #     [jl-krivine@compile.brain]'' adds an email using square
 #     brackets.
 #
-#     + **Affiliation (optional):** ''Torvalds (Sacred Kernels
+#     + **Affiliation (optional):** yaml::''Torvalds (Sacred Kernels
 #     Department)'' adds an affiliation using parentheses.
 #
-#     + **Indicate everything:** the only format allowed is
-#     ''title [email] (institute)'' like in ''Ada, Lovelace
-#     [ada.babbage.computer@paper.org] (Victorian Applied
+#     + **Indicate everything:** the only full format allowed is
+#     yaml::''title [email] (institute)'' like in yaml::''Ada,
+#     Lovelace [ada.babbage.computer@paper.org] (Victorian Applied
 #     Mechanical Informatic Institute)''.
 #
 #

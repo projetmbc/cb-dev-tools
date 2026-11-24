@@ -4,18 +4,18 @@
 # [[input]]
 #
 # The origin of an acronym can be explained using a tiny \dsl.
-# For example, ''[A::@-]bout [Desc]ription'' explains the
+# For example, yaml::''[A::@-]bout [Desc]ription'' explains the
 # choice of the acronym "@-Desc" for "About Description".
 # Here is how it works.
 #
-#     1) First, we have the full name ''About Description''.
+#     1) First, we have the full name yaml::''About Description''.
 #
-#     1) Then, we indicate inside brackets the parts to keep
-#     for the acronym. Using ''[A]bout [Desc]ription'' will
+#     1) Then, we indicate inside brackets the parts to keep for
+#     the acronym. Using yaml::''[A]bout [Desc]ription'' will
 #     produce the acronym "ADesc".
 #
-#     1) Finally, ''::'' in ''[A::@-]'' indicates the use of
-#     "@-" instead of "A" in the acronym.
+#     1) Finally, yaml::''::'' in yaml::''[A::@-]'' indicates the
+#     use of "@-" instead of "A" in the acronym.
 #
 #
 # [[output]]

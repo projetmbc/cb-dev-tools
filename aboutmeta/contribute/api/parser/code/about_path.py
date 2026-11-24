@@ -8,30 +8,17 @@
 #
 #
 #
-# This parser processes lists of python::''TOCPath''-like \specs. Paths can be defined relative to a parent folder using a raw path, a glob pattern, or a regex pattern, with optional support for recursive searches. Here is how each option works.
+# This parser processes lists of ''TOCPath''-like \specs. Paths can be defined relative to a parent folder using a raw path, a glob pattern, or a regex pattern, with optional support for recursive searches. Here is how each option works.
 #
-#     1) **Raw paths**must use the \unix path separator (''/''),
-#        similar to a URL format.
+#     1) **Raw paths**must use the \unix path separator (yaml::''/''), similar to a URL format.
 #
-#     1) **\Glob patterns** are indicated using ''glob: ...''
-#        (or ''r-glob: ...'' for a recursive search), where
-#        ''...'' represents the glob pattern.
-#        For example, ''how-to/*.md'' matches all \md files
-#        directly inside the path::''how-to'' subfolder.
+#     1) **\Glob patterns** are indicated using yaml::''glob: ...'' (or yaml::''r-glob: ...'' for a recursive search), where yaml::''...'' represents the glob pattern. For example, yaml::''how-to/*.md'' matches all \md files directly inside the path::''how-to'' subfolder.
 #
-#     1) **\Regex patterns** are indicated using ''regex: ...''
-#        (or ''r-regex: ...'' for a recursive search).
-#        Note that ''glob: how-to/*.md'' is equivalent to
-#        ''r-regex: how-to/[^/]+\.md'', but not to
-#        ''regex: how-to/[^/]+\.md''. This is because matching
-#        paths inside subfolders requires a recursive directory
-#        walk, on which the \regex pattern is then applied.
+#     1) **\Regex patterns** are indicated using yaml::''regex: ...'' (or yaml::''r-regex: ...'' for a recursive search). Note that yaml::''glob: how-to/*.md'' is equivalent to yaml::''r-regex: how-to/[^/]+\.md'', but not to yaml::''regex: how-to/[^/]+\.md''. This is because matching paths inside subfolders requires a recursive directory walk, on which the \regex pattern is then applied.
 #
 #
 # tip::
-#     ''g'' and ''rg'' are shortcuts for ''glob'' and ''r-glob'',
-#     respectively. Similarly, there are ''r'' and ''rr'' for
-#     ''regex'' and ''r-regex''.
+#     yaml::''g'' and yaml::''rg'' are shortcuts for yaml::''glob'' and yaml::''r-glob'', respectively. Similarly, there are yaml::''r'' and yaml::''rr'' for yaml::''regex'' and yaml::''r-regex''.
 #
 #
 # caution::
@@ -48,7 +35,7 @@
 # [[validate]]
 #
 # Here are the validation steps performed, depending on the kind
-# of python::''TOCPath'' defined.
+# of ''TOCPath'' defined.
 #
 #     + A **raw path** must be unbroken (it must point to a valid
 #       location).
@@ -61,7 +48,7 @@
 #     When working with \aboutmeta, this is unnecessary because
 #     the parent folder is always the one containing the
 #     path::''''about.yaml'''' file (indeed, this feature is useful
-#     when using a standalone python::''TOCPath'' object).
+#     when using a standalone ''TOCPath'' object).
 #
 #
 # [[post-prod]]
@@ -82,7 +69,7 @@
 #
 #     1) **Winning pattern:** relative paths matched by a
 #        pattern are converted to absolute paths and sorted
-#        "naturally" using the python::''natsort.natsorted''
+#        "naturally" using the ''natsort.natsorted''
 #        \func.
 #
 #

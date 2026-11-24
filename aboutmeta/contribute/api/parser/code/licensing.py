@@ -5,9 +5,9 @@
 #
 # A \lic is identified using identifiers from the cf::{''SPDX''
 # SPDX License List ; https://spdx.org/licenses/}, with a certain
-# degree of flexibility. For example, you can type ''gpl 3.0+''
-# and ''cc by nc 4.0'' instead of ''GPL-3.0+'' and ''CC-BY-NC-4.0''.
-# More precisely, here is what is allowed.
+# degree of flexibility. For example, you can type yaml::''gpl 3.0+''
+# and yaml::''cc by nc 4.0'' instead of yaml::''GPL-3.0+'' and
+# yaml::''CC-BY-NC-4.0''. More precisely, here is what is allowed.
 #
 #     1) Spaces can replace hyphens.
 #

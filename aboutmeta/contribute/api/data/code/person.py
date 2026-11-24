@@ -240,10 +240,10 @@ class Person(DataManager):
 #     According to RFC 5321, we have:
 #
 #         + The domain part is case-insensitive, and should
-#           be lowercase.
+#         be lowercase.
 #
 #         + The local part ***may*** be case-sensitive, but
-#           rarely is.
+#         rarely is.
 ###
     def _normalize_email(self) -> None:
         if not self.email is None:

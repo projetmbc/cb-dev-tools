@@ -3,8 +3,8 @@
 ###
 # [[input]]
 #
-# An ''YMD'' date follows English format "YYYY-MM-DD" like
-# "2025-10-31".
+# An ''YMD'' date follows English format yaml::''YYYY-MM-DD''
+# like yaml::''2025-10-31''.
 #
 #
 # [[output]]
