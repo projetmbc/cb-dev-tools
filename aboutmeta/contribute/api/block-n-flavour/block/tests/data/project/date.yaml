@@ -1,0 +1,14 @@
+date: 2026-11-24
+
+---
+
+date:
+  _attr:
+    year:
+      _str: 2026
+
+    month:
+      _str: 11
+
+    day:
+      _str: 24

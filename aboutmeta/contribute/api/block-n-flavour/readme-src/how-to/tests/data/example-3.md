@@ -6,7 +6,6 @@
 ~~~yaml
 # Extract of 'tests/data/project/authors.yaml' file (2026-11-22).
 
-desc: ...
 authors:
   - Mr, Nobody
   - Jean, Louis, Krivine [jl-krivine@compile.brain]

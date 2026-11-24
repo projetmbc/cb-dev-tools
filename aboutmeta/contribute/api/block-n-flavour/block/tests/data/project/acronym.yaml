@@ -1,0 +1,11 @@
+acronym: "[A::@-]bout [Desc]ription"
+
+---
+
+acronym:
+  _attr:
+    short:
+      _str: "@-Desc"
+
+    desc:
+      _str: About Description

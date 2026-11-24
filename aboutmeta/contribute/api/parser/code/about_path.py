@@ -29,8 +29,13 @@
 #
 # [[output]]
 #
-# XXXXXXXXXXXXXX
-#
+# XXXXX    The parsed data exposes the following \attrs.
+#     * spec: relative path \spec or relative search pattern for paths.
+#     * parent: parent directory for the relative paths.
+#     * kind: path kind to manage (either a raw path or a pattern).
+#         @ _ = TAG_RAW or _ in TAG_PATTERN_KINDS
+#     * pattern: pattern or raw path specified relatively to the
+#         ''parent'' directory.
 #
 # [[validate]]
 #

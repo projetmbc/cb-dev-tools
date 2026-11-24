@@ -6,7 +6,6 @@
 ~~~yaml
 # Extract of 'tests/data/project/version.yaml' file (2026-11-22).
 
-desc: ...
 version: 1.2.3-beta.4
 
 ---
@@ -24,7 +23,7 @@ version:
 <!-- BLOCK TESTS - VERSION - END -->
 
 
-The preceding code starts with a YAML document (before `---`) containing sample user-provided data, next come the tests, which cover two features (here, the `desc` field is required, though untested).
+The preceding code starts with a YAML document (before `---`) containing sample user-provided data, next come the tests, which cover two features.
 
   * First, we verify that the `Python` value has string representation `"1.2.3"`.
 

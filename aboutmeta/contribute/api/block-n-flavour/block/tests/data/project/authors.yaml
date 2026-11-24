@@ -1,4 +1,3 @@
-desc: ...
 authors:
   - Mr, Nobody
   - Jean, Louis, Krivine [jl-krivine@compile.brain]
@@ -18,6 +17,7 @@ authors:
         _list:
           - _str: Jean
           - _str: Louis
+
       email:
         _str: jl-krivine@compile.brain
 
