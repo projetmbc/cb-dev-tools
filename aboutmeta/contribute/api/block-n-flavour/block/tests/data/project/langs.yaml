@@ -1,0 +1,19 @@
+langs:
+  doc: en
+  manual: fr-BE
+
+---
+
+langs:
+  doc:
+    _attr:
+      std_id:
+        _str: en-GB
+
+      territory:
+        _str: Great Britain
+
+  manual:
+    _attr:
+      name:
+        _str: Belgian French

@@ -2,7 +2,7 @@
 
 
 ==
-XXXXXX  (1.0.0-beta.2)
+25  (1.0.0-beta.2)     ??????
 ==
 
 --------
@@ -10,7 +10,7 @@ XXXXXX  (1.0.0-beta.2)
 --------
 
 [[:doc:]]
-\Tech \docs for parsers: \attrs are documented because they are used by end users and block contributors. This implies the use of two new sections verb::''[[input]]'' and verb::''[[output]]''.
+\Tech \docs for parsers: \attrs are documented for end users and block contributors, which introduces two new sections: verb::''[[input]]'' and verb::''[[output]]''.
 
 
 --------

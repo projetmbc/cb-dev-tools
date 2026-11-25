@@ -5,7 +5,7 @@
 
 ---
 
-_elt-2:
+_elt-1:
   _attr:
-    spec:
-      glob: XXXX
+    XXX:
+      _str: YYY

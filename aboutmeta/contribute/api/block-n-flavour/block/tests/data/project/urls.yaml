@@ -1,0 +1,19 @@
+urls:
+  home: https://xkcd.com/795/
+  dev: https://xkcd.com/913/
+  issues: https://xkcd.com/2295/
+
+---
+
+urls:
+  home:
+    _attr:
+      url: https://xkcd.com/795/
+
+  dev:
+    _attr:
+      url: https://xkcd.com/913/
+
+  issues:
+    _attr:
+      url: https://xkcd.com/2295/
