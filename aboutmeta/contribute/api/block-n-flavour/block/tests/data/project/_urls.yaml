@@ -1,0 +1,17 @@
+urls:
+  home, dev, issues *: url
+
+---
+
+urls:
+  home:
+    _attr:
+      XX: YYY
+
+  dev:
+    _attr:
+      XX: YYY
+
+  issues:
+    _attr:
+      XX: YYY

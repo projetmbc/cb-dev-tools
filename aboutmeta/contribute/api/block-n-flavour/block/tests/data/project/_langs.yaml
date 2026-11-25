@@ -1,0 +1,14 @@
+langs:
+  doc: en
+  manual: fr-BE
+
+---
+
+langs:
+  doc:
+    _attr:
+      XX: YYY
+
+  manual:
+    _attr:
+      XX: YYY

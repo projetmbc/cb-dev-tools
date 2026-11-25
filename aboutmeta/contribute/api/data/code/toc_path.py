@@ -72,8 +72,7 @@ TYPE_TOCPATH_SPEC = (
 
 ###
 # prototype::
-#     spec: relative path \spec or relative search pattern for
-#         paths.
+#     spec: relative path or relative path search pattern.
 #
 #     parent: parent directory for the relative paths.
 #

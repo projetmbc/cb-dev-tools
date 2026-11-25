@@ -1,0 +1,13 @@
+keywords:
+  - Some
+  - key
+  - words
+
+---
+
+keywords:
+  _elt-1:
+    _str: Some
+
+  _elt-3:
+    _str: words

@@ -9,10 +9,16 @@ XXXXXX  (1.0.0-beta.2)
 :update:
 --------
 
-[[:doc:]]  ????
-Parser technical \docs: \attrs are documented because they are used by end users and block contributors.
+[[:doc:]]
+\Tech \docs for parsers: \attrs are documented because they are used by end users and block contributors. This implies the use of two new sections verb::''[[input]]'' and verb::''[[output]]''.
 
 
+--------
+:fordev:
+--------
+
+[[:test:]]  ??????
+Block \contribs: \yaml test files to validate legal data extractions.
 
 
 // ---------- //
@@ -57,4 +63,9 @@ Here are the \chges made.
     1) \python data and parser files: magic comments have been simplified a lot (this has been made possible by the fact that parsers and post-rpocessing tools are put inside the same \python file).
 
 
-    1) In the contributions folder, addition of unit tests for data and parser codes, as well as \yaml test files to validate expected structures for blocks.
+[[:test:]]
+\Contribs.
+
+    1) Unit tests for data and parser codes.
+
+    1) \yaml test files to validate expected structures for blocks.

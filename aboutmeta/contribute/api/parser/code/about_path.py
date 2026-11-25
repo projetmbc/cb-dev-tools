@@ -3,22 +3,34 @@
 ###
 # [[input]]
 #
-# XXXXXX
+# This parser lets you specify path searches using a dedicated
+# \dsl. Paths are resolved relative to a parent folder via a raw
+# path, a glob pattern, or a regex pattern, with optional recursive
+# search. Here is how each option works.
 #
+#     1) **Raw paths** must use the \unix path separator
+#     (yaml::''/''). They can target either a file or a directory.
 #
+#     1) **\Glob patterns** are indicated using yaml::''glob: ...''
+#     (or yaml::''r-glob: ...'' for a recursive search), where
+#     yaml::''...'' represents the glob pattern.
+#     For example, yaml::''how-to/*.md'' matches all \md files
+#     directly inside the path::''how-to'' subfolder.
 #
-#
-# This parser processes lists of ''TOCPath''-like \specs. Paths can be defined relative to a parent folder using a raw path, a glob pattern, or a regex pattern, with optional support for recursive searches. Here is how each option works.
-#
-#     1) **Raw paths**must use the \unix path separator (yaml::''/''), similar to a URL format.
-#
-#     1) **\Glob patterns** are indicated using yaml::''glob: ...'' (or yaml::''r-glob: ...'' for a recursive search), where yaml::''...'' represents the glob pattern. For example, yaml::''how-to/*.md'' matches all \md files directly inside the path::''how-to'' subfolder.
-#
-#     1) **\Regex patterns** are indicated using yaml::''regex: ...'' (or yaml::''r-regex: ...'' for a recursive search). Note that yaml::''glob: how-to/*.md'' is equivalent to yaml::''r-regex: how-to/[^/]+\.md'', but not to yaml::''regex: how-to/[^/]+\.md''. This is because matching paths inside subfolders requires a recursive directory walk, on which the \regex pattern is then applied.
+#     1) **\Regex patterns** are indicated using yaml::''regex:
+#     ...'' (or yaml::''r-regex: ...'' for a recursive search).
+#     Note that yaml::''glob: how-to/*.md'' is equivalent to
+#     yaml::''r-regex: how-to/[^/]+\.md'', but not to
+#     yaml::''regex: how-to/[^/]+\.md''. This is because matching
+#     paths inside subfolders requires a recursive directory walk,
+#     on which the \regex pattern is then applied.
 #
 #
 # tip::
-#     yaml::''g'' and yaml::''rg'' are shortcuts for yaml::''glob'' and yaml::''r-glob'', respectively. Similarly, there are yaml::''r'' and yaml::''rr'' for yaml::''regex'' and yaml::''r-regex''.
+#     yaml::''g'' and yaml::''rg'' are shortcuts for yaml::''glob''
+#     and yaml::''r-glob'', respectively. Similarly, there are
+#     yaml::''r'' and yaml::''rr'' for yaml::''regex'' and
+#     yaml::''r-regex''.
 #
 #
 # caution::
@@ -29,13 +41,25 @@
 #
 # [[output]]
 #
-# XXXXX    The parsed data exposes the following \attrs.
-#     * spec: relative path \spec or relative search pattern for paths.
-#     * parent: parent directory for the relative paths.
-#     * kind: path kind to manage (either a raw path or a pattern).
-#         @ _ = TAG_RAW or _ in TAG_PATTERN_KINDS
-#     * pattern: pattern or raw path specified relatively to the
-#         ''parent'' directory.
+# The parsed data exposes the following \attrs.
+#
+#     * ''spec'' holds the relative path or the relative path
+#     search pattern. used to match paths. For patterns, the kinds
+#     use long names (no shortcuts).
+#
+#     * ''parent'' defines the parent directory from which relative
+#     paths are resolved.
+#
+#     * ''kind'' indicates the path search handled. The possible
+#     values are {{'glob'}}, {{'r-glob'}}, {{'regex'}}, and
+#     {{'r-regex'}}.
+#
+#     * ''pattern'' specifies the raw path or pattern relative to
+#     the parent directory. For a \glob search, the pattern is a
+#     string, and for a \regex, it is a ''re.Pattern object''. In
+#     this last case, ''pattern.pattern'' is a string version of
+#     the \regex.
+#
 #
 # [[validate]]
 #
