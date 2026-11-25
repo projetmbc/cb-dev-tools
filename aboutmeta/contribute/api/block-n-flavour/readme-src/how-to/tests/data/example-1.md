@@ -25,7 +25,7 @@ version:
 
 The preceding code starts with a YAML document (before `---`) containing sample user-provided data, next come the tests, which cover two features.
 
-  * First, we verify that the `Python` value has string representation `"1.2.3"`.
+  * First, we verify that the `Python` value has string representation `"1.2.3-beta.4"`.
 
   * Second, we check the values of specific attributes. There is no need to test everything, as this is already covered by the parser tests. Since an attribute is a `Python` object, we ask to test the string representation of the tested attributes.
 

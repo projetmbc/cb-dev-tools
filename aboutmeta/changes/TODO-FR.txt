@@ -5,6 +5,11 @@ aboutmeta - TODO
 
 > ---------------------------- <
 
+leading underscores are prohibited in block keys
+
+
+> ---------------------------- <
+
 --------
 :update:
 --------

@@ -56,7 +56,7 @@
 #
 #     * ''pattern'' specifies the raw path or pattern relative to
 #     the parent directory. For a \glob search, the pattern is a
-#     string, and for a \regex, it is a ''re.Pattern object''. In
+#     string, and for a \regex, it is a ''re.Pattern'' object. In
 #     this last case, ''pattern.pattern'' is a string version of
 #     the \regex.
 #
@@ -228,7 +228,7 @@ def postprod(
 
                 paths.append(full_path)
 
-# Pattern search. PO is not POO!
+# Pattern search. OOP is not POO!
         else:
             paths_found = natsorted(tpath.path_iter())
 

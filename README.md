@@ -1,5 +1,5 @@
-cbdev-tools monorepo
-====================
+cb-dev-tools monorepo
+=====================
 
 This monorepo contains a few tools that can make amateur developers' lives easier.
 

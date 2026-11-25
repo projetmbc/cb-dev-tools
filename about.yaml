@@ -1,6 +1,6 @@
 monorepo:
-  acronym: "[C:c]hristophe [B:b]AL [dev:dev-]elopper [tools]"
-  desc   : "This monorepo brings together useful tools for software development."
+  acronym: "[C:c]hristophe [B:b-]AL [dev:dev-]elopper [tools]"
+  desc   : "This monorepo contains a few tools that can make amateur developers' lives easier."
 
   author: Christophe, BAL
 

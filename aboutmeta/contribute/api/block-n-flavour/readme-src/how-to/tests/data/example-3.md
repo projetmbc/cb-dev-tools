@@ -1,4 +1,4 @@
-**Example 3.** The following tests apply to list items via `_elt-<nb>`, where `<nb>` is the position of the item being tested. Also note the use of `_list` to test a full list of strings for the `surnames` attribute, as expected.
+**Example 3.** The following tests apply to list items via `_elt-<nb>`, where `<nb>` is the position of the item being tested. Also note the use of `_list` to test a full `Python` list of strings for the `surnames` attribute, as expected.
 
 
 <!-- BLOCK TESTS - AUTHORS - START -->
@@ -37,4 +37,4 @@ authors:
 <!-- BLOCK TESTS - AUTHORS - END -->
 
 
-> ***CAUTION.*** *To make the block specification more accessible, we are targeting a broad audience. This explains why list indexing starts at 1 rather than 0, as is the case in most programming languages.*
+> ***IMPORTANT.*** *To make the block specification more accessible, we are targeting a broad audience. This explains why list indexing starts at 1 rather than 0, as is the case in most programming languages.*
