@@ -5,7 +5,14 @@
 
 
 ###
+# [[input]]
+#
 # All valid \urls are accepted.
+#
+#
+# [[output]]
+#
+# The parsed data exposes only the \attr ''url''.
 #
 #
 # [[normalize]]

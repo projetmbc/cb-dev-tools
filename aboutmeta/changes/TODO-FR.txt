@@ -34,11 +34,6 @@ The \docs and manual can be easily translated in the path::''contrib/translate''
 
 > ---------------------------- <
 
-leading underscores are prohibited in block keys
-
-
-> ---------------------------- <
-
 unit tests locaux
 
     --> integration du nouveau syst de teste des block : struct + Data

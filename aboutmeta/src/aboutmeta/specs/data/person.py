@@ -49,28 +49,27 @@ DELIMS_PARTICLE = TAG_PARTICLE_OPEN + TAG_PARTICLE_CLOSE
 #
 #     surname: surname without a particle is mandatory.
 #
-#     particle: surname particle, or ''""'' if no particle is needed.
+#     particle: surname particle, or ''None'' if no particle used.
 #
-#     firstnames: first name list (that can be an empty list).
+#     firstnames: first name list, or ''None'' if no first names
+#         provided.
 #
-#     email: email adress, or ''""'' if no email provided.
+#     email: email adress, or ''None'' if no email provided.
 #
-#     affiliation: affiliation adress, or ''""'' if no affiliation
+#     affiliation: affiliation adress, or ''None'' if no affiliation
 #         provided.
 #
 #
 # note::
-#     The ''surname'', ''particle'', ''firstnames'', ''email''
-#     and ''affiliation'' \attrs are build from the value of the
-#     ''spec'' \att.
+#     The ''spec'' \attr is used to build the other ones.
 ###
 class Person(DataManager):
     spec       : str
-    surname    : str        = field(init = False)
-    particle   : str        = field(init = False)
-    firstnames : tuple[str] = field(init = False)
-    email      : str        = field(init = False)
-    affiliation: str        = field(init = False)
+    surname    : str               = field(init = False)
+    particle   : None | str        = field(init = False)
+    firstnames : None | tuple[str] = field(init = False)
+    email      : None | str        = field(init = False)
+    affiliation: None | str        = field(init = False)
 
 ###
 # prototype::
@@ -106,10 +105,12 @@ class Person(DataManager):
         titles = spec.split(',')
 
         if len(titles) == 1:
-            self.firstnames = []
+            self.firstnames = None
 
         else:
-            self.firstnames = [n.strip() for n in titles[:-1]]
+            self.firstnames = tuple(
+                n.strip() for n in titles[:-1]
+            )
 
 # Surname.
         self.surname, self.particle = extract_group(
@@ -134,7 +135,7 @@ class Person(DataManager):
         if not self.particle is None:
             self.spec = f'{{{self.particle}}} {self.spec}'
 
-        if self.firstnames:
+        if not self.firstnames is None:
             firstnames = ', '.join(self.firstnames)
             self.spec  = f'{firstnames}, {self.spec}'
 
@@ -200,12 +201,13 @@ class Person(DataManager):
 ###
     def _normalize_titles(self) -> None:
 # First names.
-        self.firstnames = tuple(
-            map(
-                self._normalize_name,
-                self.firstnames
+        if not self.firstnames is None:
+            self.firstnames = tuple(
+                map(
+                    self._normalize_name,
+                    self.firstnames
+                )
             )
-        )
 
 # Particle.
         if not self.particle is None:
@@ -242,13 +244,13 @@ class Person(DataManager):
 #     According to RFC 5321, we have:
 #
 #         + The domain part is case-insensitive, and should
-#           be lowercase.
+#         be lowercase.
 #
 #         + The local part ***may*** be case-sensitive, but
-#           rarely is.
+#         rarely is.
 ###
     def _normalize_email(self) -> None:
-        if self.email:
+        if not self.email is None:
             local_part, _ , domain_part = self.email.partition('@')
 
             self.email = f'{local_part}@{domain_part.lower()}'
@@ -259,7 +261,7 @@ class Person(DataManager):
 #         affiliation adresss.
 ###
     def _normalize_affiliation(self) -> None:
-        if self.affiliation:
+        if not self.affiliation is None:
             self.affiliation = single_spaces(self.affiliation)
 
 ###
@@ -284,7 +286,7 @@ class Person(DataManager):
         self.data_pb.what('email')
 
 # Nothing to do.
-        if not self.email:
+        if self.email is None:
             self.data_pb.no_check()
 
             return
@@ -314,7 +316,7 @@ class Person(DataManager):
         self.data_pb.what('affiliation')
 
 # Nothing to do.
-        if not self.affiliation:
+        if self.affiliation is None:
             self.data_pb.no_check()
 
             return

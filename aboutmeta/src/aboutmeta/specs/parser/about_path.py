@@ -5,32 +5,36 @@
 
 
 ###
-# This parser processes lists of python::''TOCPath''-like \specs.
-# Paths can be defined relative to a parent folder using a raw
-# path, a glob pattern, or a regex pattern, with optional support
-# for recursive searches. Here is how each option works.
+# [[input]]
 #
-#     1) **Raw paths**must use the \unix path separator (''/''),
-#        similar to a URL format.
+# This parser lets you specify path searches using a dedicated
+# \dsl. Paths are resolved relative to a parent folder via a raw
+# path, a glob pattern, or a regex pattern, with optional recursive
+# search. Here is how each option works.
 #
-#     1) **\Glob patterns** are indicated using ''glob: ...''
-#        (or ''r-glob: ...'' for a recursive search), where
-#        ''...'' represents the glob pattern.
-#        For example, ''how-to/*.md'' matches all \md files
-#        directly inside the path::''how-to'' subfolder.
+#     1) **Raw paths** must use the \unix path separator
+#     (yaml::''/''). They can target either a file or a directory.
 #
-#     1) **\Regex patterns** are indicated using ''regex: ...''
-#        (or ''r-regex: ...'' for a recursive search).
-#        Note that ''glob: how-to/*.md'' is equivalent to
-#        ''r-regex: how-to/[^/]+\.md'', but not to
-#        ''regex: how-to/[^/]+\.md''. This is because matching
-#        paths inside subfolders requires a recursive directory
-#        walk, on which the \regex pattern is then applied.
+#     1) **\Glob patterns** are indicated using yaml::''glob: ...''
+#     (or yaml::''r-glob: ...'' for a recursive search), where
+#     yaml::''...'' represents the glob pattern.
+#     For example, yaml::''how-to/*.md'' matches all \md files
+#     directly inside the path::''how-to'' subfolder.
+#
+#     1) **\Regex patterns** are indicated using yaml::''regex:
+#     ...'' (or yaml::''r-regex: ...'' for a recursive search).
+#     Note that yaml::''glob: how-to/*.md'' is equivalent to
+#     yaml::''r-regex: how-to/[^/]+\.md'', but not to
+#     yaml::''regex: how-to/[^/]+\.md''. This is because matching
+#     paths inside subfolders requires a recursive directory walk,
+#     on which the \regex pattern is then applied.
 #
 #
 # tip::
-#     ''g'', ''rg'', ''r'' and ''rr'' are shortcuts for ''glob'',
-#     ''r-glob'', ''regex'' and ''r-regex'' respectively.
+#     yaml::''g'' and yaml::''rg'' are shortcuts for yaml::''glob''
+#     and yaml::''r-glob'', respectively. Similarly, there are
+#     yaml::''r'' and yaml::''rr'' for yaml::''regex'' and
+#     yaml::''r-regex''.
 #
 #
 # caution::
@@ -39,10 +43,32 @@
 #     more efficient.
 #
 #
+# [[output]]
+#
+# The parsed data exposes the following \attrs.
+#
+#     * ''spec'' holds the relative path or the relative path
+#     search pattern. used to match paths. For patterns, the kinds
+#     use long names (no shortcuts).
+#
+#     * ''parent'' defines the parent directory from which relative
+#     paths are resolved.
+#
+#     * ''kind'' indicates the path search handled. The possible
+#     values are {{'glob'}}, {{'r-glob'}}, {{'regex'}}, and
+#     {{'r-regex'}}.
+#
+#     * ''pattern'' specifies the raw path or pattern relative to
+#     the parent directory. For a \glob search, the pattern is a
+#     string, and for a \regex, it is a ''re.Pattern'' object. In
+#     this last case, ''pattern.pattern'' is a string version of
+#     the \regex.
+#
+#
 # [[validate]]
 #
 # Here are the validation steps performed, depending on the kind
-# of python::''TOCPath'' defined.
+# of ''TOCPath'' defined.
 #
 #     + A **raw path** must be unbroken (it must point to a valid
 #       location).
@@ -55,13 +81,13 @@
 #     When working with \aboutmeta, this is unnecessary because
 #     the parent folder is always the one containing the
 #     path::''''about.yaml'''' file (indeed, this feature is useful
-#     when using a standalone python::''TOCPath'' object).
+#     when using a standalone ''TOCPath'' object).
 #
 #
 # [[post-prod]]
 #
-# The post-processing returns a \dict with only one key
-# ''TAG_POSTPROD_ABOUT_PATH_FILES'' associated to the list of
+# The post-processing returns a single-key \dict with key
+# ''TAG_POSTPROD_ABOUT_PATH_FILES'' and value the list of
 # "winning" absolute paths build sequentially as follows.
 #
 #     1) **Raw path file:** a raw path pointing to an existing
@@ -76,7 +102,7 @@
 #
 #     1) **Winning pattern:** relative paths matched by a
 #        pattern are converted to absolute paths and sorted
-#        "naturally" using the python::''natsort.natsorted''
+#        "naturally" using the ''natsort.natsorted''
 #        \func.
 #
 #
@@ -155,7 +181,7 @@ TAG_POSTPROD_ABOUT_PATH_FILES = '__POSTPROD_ABOUT_PATH_FILES__'
 #     data: list of ''TOCPath'' objects.
 #
 #     :return: \dict with single key ''TAG_POSTPROD_ABOUT_PATH_FILES''
-#         and \val th list of raw and winning pattern absolute paths,
+#         and \val the list of raw and winning pattern absolute paths,
 #         validating their existence.
 #         Note that for each folder found, an ''AMData'' instance is
 #         invoked to search for an path::''about.yaml'' file to use
@@ -206,7 +232,7 @@ def postprod(
 
                 paths.append(full_path)
 
-# Pattern search. PO is not POO!
+# Pattern search. OOP is not POO!
         else:
             paths_found = natsorted(tpath.path_iter())
 

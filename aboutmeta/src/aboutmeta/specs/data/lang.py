@@ -27,11 +27,11 @@ _TAG_TERRITORY = 'territory'
 
 ###
 # prototype:
-#     std_id: \std \lang identifier like ''"en-GB"''.
+#     std_id: \std \lang identifier, such as ''"en-GB"''.
 #
-#     name: full \lang name like ''"English"''.
+#     name: full \lang name, such as ''"English"''.
 #
-#     territory: \lang territory like ''"Great Britain"''.
+#     territory: \lang territory, such as ''"Great Britain"''.
 #
 #
 # note:

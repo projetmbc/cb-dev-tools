@@ -5,24 +5,47 @@
 
 
 ###
+# [[input]]
+#
 # Information related to a person is indicated as follows.
 #
-#     + **Title (mandatory):** ''Krivine'' and ''Jean, Louis,
-#     Krivine'' are legal titles for a person (the number of
-#     first names is unlimited). It is possible to specify a
-#     particle, as in ''Augustus, {de} Morgan''.
+#     + **Title (mandatory):** yaml::''Krivine'' and yaml::''Jean,
+#     Louis, Krivine'' are legal titles for a person (the number
+#     of first names is unlimited). It is possible to specify a
+#     particle, as in yaml::''Augustus, {de} Morgan''.
 #
-#     + **Email address (optional):** ''Jean, Louis, Krivine
+#     + **Email address (optional):** yaml::''Jean, Louis, Krivine
 #     [jl-krivine@compile.brain]'' adds an email using square
 #     brackets.
 #
-#     + **Affiliation (optional):** ''Torvalds (Sacred Kernels
+#     + **Affiliation (optional):** yaml::''Torvalds (Sacred Kernels
 #     Department)'' adds an affiliation using parentheses.
 #
-#     + **Indicate everything:** the only format allowed is
-#     ''title [email] (institute)'' like in ''Ada, Lovelace
-#     [ada.babbage.computer@paper.org] (Victorian Applied
+#     + **Indicate everything:** the only full format allowed is
+#     yaml::''title [email] (institute)'' like in yaml::''Ada,
+#     Lovelace [ada.babbage.computer@paper.org] (Victorian Applied
 #     Mechanical Informatic Institute)''.
+#
+#
+# [[output]]
+#
+# The parsed data exposes the following \attrs.
+#
+#     * ''spec'' is the full person \spec.
+#
+#     * ''surname'' is the surname without any particle.
+#
+#     * ''particle'' is the surname particle, or ''None'' if
+#     no particle is used.
+#
+#     * ''firstnames'' is the list of first names, or ''None''
+#     if no first names is provided.
+#
+#     * ''email'' is the email address, or ''None'' if no email
+#     is provided.
+#
+#     * ''affiliation'' is the affiliation address, or ''None''
+#     if no affiliation is provided.
 #
 #
 # [[normalize]]

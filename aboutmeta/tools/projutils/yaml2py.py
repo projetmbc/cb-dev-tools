@@ -29,6 +29,8 @@ from .constants.friendly_api import *
 
 PATTERN_LIST_PARSER = re.compile(r'list\((.*?)\)')
 
+PATTERN_LEGAL_BLOCK_NAME = re.compile(r"\A(?!_)[A-Za-z_.-]+\Z")
+
 
 # ----------------------- #
 # -- PARSER DATA CLASS -- #
@@ -375,6 +377,8 @@ class DigestedYamlSpecs():
 # of alternatives and choices.
             for bgroup in block_spec:
                 for bname in bgroup:
+                    self.validate_bname(bname)
+
                     self._prepath_parts.append(bname)
 
                     sub_specs[bname] = next_build(parser_spec)
@@ -507,4 +511,22 @@ class DigestedYamlSpecs():
 # For deterministic Python code, we must sort the choices made.
 # It is not a problem because sorting is meaningless for choices.
             for bname in sorted(bgroup):
+                self.validate_bname(bname)
+
                 specs[bname] = _parser_spec[i]
+
+###
+# prototype::
+#     bname : ????
+#
+#     :action: ???
+###
+    def validate_bname(
+        self,
+        bname: str,
+    ) -> None:
+        if not bool(PATTERN_LEGAL_BLOCK_NAME.match(bname)):
+            raise ValueError(
+                f'Illegal block name {bname!r}. See:'
+                f'\n{self.file}'
+            )

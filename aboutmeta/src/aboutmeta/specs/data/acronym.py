@@ -32,7 +32,7 @@ TAG__DEF_OPEN, TAG__DEF_CLOSE = '[]'
 #
 #     short: acronym alone.
 #
-#     desc: full \def of acronym without any bracket.
+#     desc: full form of acronym without any bracket.
 #
 #
 # note::

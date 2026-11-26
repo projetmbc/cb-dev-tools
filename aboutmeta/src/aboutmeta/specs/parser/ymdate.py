@@ -5,8 +5,23 @@
 
 
 ###
-# An ''YMD'' date follows English format "YYYY-MM-DD" like
-# "2025-10-31".
+# [[input]]
+#
+# An ''YMD'' date follows English format yaml::''YYYY-MM-DD''
+# like yaml::''2025-10-31''.
+#
+#
+# [[output]]
+#
+# The parsed data is a ''datetime.datetime.date'' object that
+# exposes the following useful \attrs (refer to the ''datetime''
+# \doc for more \info).
+#
+#     * ''year'' is the year number (e.g., ''2026'').
+#
+#     * ''month'' is the month number, from ''1'' to ''12''.
+#
+#     * ''day'' is the day of the month, from ''1'' to ''31''.
 ###
 
 
@@ -23,7 +38,8 @@ from aboutmeta.core.errors import ParsingError
 # prototype::
 #     data: date provided in the \yaml file.
 #
-#     :return: ''datetime.date'' instance representing the date.
+#     :return: ''datetime.datetime.date'' instance representing
+#         the date.
 ###
 def parse(data: str) -> datetime.date:
     try:
@@ -56,10 +72,9 @@ def parse(data: str) -> datetime.date:
 
 ###
 # prototype::
-#     data: ''datetime.date'' object.
+#     data: ''datetime.datetime.date'' object.
 #
-#     :return: ''"%Y-%m-%d"'' format value of the ''datetime.date''
-#              object.
+#     :return: ''"%Y-%m-%d"'' format value of the ''data'' object.
 ###
 def write(data: datetime.date) -> str:
     return data.strftime('%Y-%m-%d')

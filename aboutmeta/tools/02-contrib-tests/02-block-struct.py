@@ -14,10 +14,9 @@ from cbutils.pathplus import *
 # -- CONSTANTS -- #
 # --------------- #
 
-NUM_TESTS = 3
-
 CONTEXT  = 'block'
-MSG_CTXT = f'{CONTEXT} contrib tests of structure'
+KIND     = 'structure'
+MSG_CTXT = f'{CONTEXT} contrib tests of {KIND}'
 
 
 THIS_DIR    = Path(__file__).parent
@@ -26,14 +25,20 @@ PROJECT_DIR = THIS_DIR
 while(PROJECT_DIR.name != 'aboutmeta'):
     PROJECT_DIR = PROJECT_DIR.parent
 
+
+NUM_TESTS = 1 + int(
+    Path(__file__).name.split('-')[0]
+)
+
+
 CONTRIB_DIR = (
       PROJECT_DIR / 'contribute' / 'api'
     / 'block-n-flavour' / CONTEXT
 )
 
-CONTRIB_TESTS_DIR = CONTRIB_DIR / 'tests' / 'structure'
+CONTRIB_TESTS_DIR = CONTRIB_DIR / 'tests' / KIND
 
-TESTS_DIR = PROJECT_DIR / 'tests' / 'api' / f'{NUM_TESTS:02}-{CONTEXT}-structure' / 'contribs'
+TESTS_DIR = PROJECT_DIR / 'tests' / 'api' / f'{NUM_TESTS:02}-{CONTEXT}-{KIND}' / 'contribs'
 
 
 # ----------------- #
@@ -52,7 +57,9 @@ for folder, contribs in get_accepted_paths(
 ).items():
     ctxt = folder.parent.name
 
-    logging.info(f"Working on '{ctxt}' test data.")
+    logging.info(
+        f"Working on '{ctxt}' test YAML files - '{KIND.upper()}'."
+    )
 
     for one_contrib in sorted(contribs):
         contrib_name      = Path(one_contrib).stem
