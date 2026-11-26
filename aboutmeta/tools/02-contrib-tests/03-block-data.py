@@ -109,10 +109,6 @@ def validate_test_dict(
     blocks: dict,
     tests : dict,
 ) -> None:
-    print('---')
-    print(f'{blocks = }')
-    print(f'{tests  = }')
-
 # Data keys vs test keys.
     block_names = set()
 
@@ -158,7 +154,7 @@ def validate_test_dict(
             validate_test_list(data_tests)
 
         else:
-            validate_test_dict(data, data_tests)
+            validate_pyobjects(data_tests)
 
 
 def build_yaml_keys(
@@ -225,6 +221,17 @@ def validate_one_pyobject(
                      'Data tested must be a string. '
                     f'See illegal value:\n{kind}: {data}'
                 )
+
+# List.
+        case '_list':
+            if not isinstance(data, list):
+                raise TypeError(
+                     'Data tested must be a list. '
+                    f'See illegal value:\n{kind}: {data}'
+                )
+
+            for v in data:
+                validate_pyobjects(v)
 
 # Dict.
         case '_dict':
