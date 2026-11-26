@@ -4,15 +4,15 @@ author: Jean, Louis, Krivine
 
 ---
 
-authors:
+author:
   _attr:
     surname:
       _str: Krivine
 
-    firstnames:
-      _list:
-        - _str: Jean
-        - _str: Louis
+    # firstnames:
+    #   _list:
+    #     - _str: Jean
+    #     - _str: Louis
 
     email:
       _str: jl-krivine@compile.brain

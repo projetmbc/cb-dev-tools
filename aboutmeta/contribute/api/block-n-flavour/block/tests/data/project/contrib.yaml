@@ -2,7 +2,7 @@ contrib: Mr, Nobody
 
 ---
 
-contribs:
+contrib:
   _attr:
     surname:
       _str: Nobody

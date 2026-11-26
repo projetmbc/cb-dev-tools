@@ -72,7 +72,9 @@ for folder, contribs in get_accepted_paths(
         ]:
             add_missing_dir(unit_test_data / kind)
 
-        for p in contrib_test_data.glob('*/*.yaml'):
+        for p in sorted(
+            contrib_test_data.glob('*/*.yaml')
+        ):
             test_file = TESTS_DIR / p.relative_to(CONTRIB_TESTS_DIR)
 
             test_file = test_file.parent / test_file.stem / "about.yaml"

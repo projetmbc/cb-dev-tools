@@ -11,6 +11,8 @@ from cbutils.pathplus import *
 
 from yaml import safe_load_all
 
+from benedict import benedict
+
 
 # ------------------ #
 # -- CONSTANTS #1 -- #
@@ -104,35 +106,91 @@ def validate_test_list(tests: dict) -> None:
 
 
 def validate_test_dict(
-    data : dict,
-    tests: dict,
+    blocks: dict,
+    tests : dict,
 ) -> None:
-    data_keys = set()
+    print('---')
+    print(f'{blocks = }')
+    print(f'{tests  = }')
+
+# Data keys vs test keys.
+    block_names = set()
 
     build_yaml_keys(
-        data,
-        data_keys
+        yamldict = blocks,
+        allkeys  = block_names,
     )
 
     tests_keys = set()
 
     build_yaml_keys(
-        tests,
-        tests_keys
+        yamldict = tests,
+        allkeys  = tests_keys,
+        is_test  = True,
     )
 
-    print(f'{data_keys  = }')
-    print(f'{tests_keys = }')
+    if not tests_keys <= block_names:
+        illegal_keys = sorted(tests_keys - block_names)
 
-    exit()
+        badnames = ', '.join(f"{n!r}" for n in illegal_keys)
+
+        plurial = '' if len(illegal_keys) == 1 else 's'
+
+        raise ValueError(
+            f'Bad name{plurial} used to test YAML block. '
+            f'See name{plurial} {badnames}.'
+        )
+
+# Let's analyze the test specs.
+    tests_longest_keys = {
+        p for p in tests_keys
+        if not any(q.startswith(p + ".") for q in tests_keys)
+    }
+
+    _data  = benedict(blocks)
+    _tests = benedict(tests)
+
+    for keypath in tests_longest_keys:
+        data       = _data[keypath]
+        data_tests = _tests[keypath]
+
+        if isinstance(data, list):
+            validate_test_list(data_tests)
+
+        else:
+            validate_test_dict(data, data_tests)
 
 
 def build_yaml_keys(
     yamldict: dict,
-    allkeys :set,
+    allkeys : set,
+    is_test : bool = False,
+    prefix  : str  = '',
  ) -> set:
-    # for k, v in yamldict.items()
-    ...
+    for k, v in yamldict.items():
+        if k[0] == '_':
+            raise ValueError(
+                 'Illegal YAML block name. '
+                f'See illegal value: {k!r}.'
+            )
+
+        allkeys.add(f'{prefix}{k}')
+
+        if not isinstance(v, dict):
+            if not is_test:
+                continue
+
+            raise TypeError(
+                f'Testing YAML block {k!r} relies on a dict. '
+                f'See illegal value:\n{v}'
+            )
+
+        if all(sk[0] != '_' for sk in v):
+            build_yaml_keys(
+                yamldict = v,
+                allkeys  = allkeys,
+                prefix   = prefix + f'{k}.',
+            )
 
 
 def validate_pyobjects(tests: dict) -> None:
@@ -239,5 +297,7 @@ for folder, contribs in get_accepted_paths(
         ]:
             _(unit_test_data)
 
-        for yfile in contrib_test_data.glob('*.yaml'):
+        for yfile in sorted(
+            contrib_test_data.glob('*.yaml')
+        ):
             validate_test_file(yfile)
