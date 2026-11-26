@@ -1,10 +1,10 @@
-**Example 3.** The following tests apply to list items via `_elt-<nb>`, where `<nb>` is the position of the item being tested. Also note the use of `_list` to test a full `Python` list of strings for the `surnames` attribute, as expected.
+**Example 3.** The following tests apply to list items via `_elt-<nb>`, where `<nb>` is the position of the item being tested. Also note the special key `_list` used to test a full `Python` list (here, the `surnames` attribute is a list of given names stored as strings).
 
 
-<!-- BLOCK TESTS - AUTHORS - START -->
+<!-- BLOCK TESTS - PROJECT - AUTHORS - START -->
 
 ~~~yaml
-# Extract of 'tests/data/project/authors.yaml' file (2026-11-22).
+# 'tests/data/project/authors.yaml' file (2026-11-22).
 
 authors:
   - Mr, Nobody
@@ -34,7 +34,7 @@ authors:
         _str: Sacred Kernels Department
 ~~~
 
-<!-- BLOCK TESTS - AUTHORS - END -->
+<!-- BLOCK TESTS - PROJECT - AUTHORS - END -->
 
 
 > ***IMPORTANT.*** *To make the block specification more accessible, we are targeting a broad audience. This explains why list indexing starts at 1 rather than 0, as is the case in most programming languages.*

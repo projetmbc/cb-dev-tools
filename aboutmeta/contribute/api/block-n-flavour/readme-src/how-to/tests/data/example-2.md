@@ -1,9 +1,9 @@
-**Example 2.** Here, the tested key paths are less trivial, though still easy to manage since they simply mirror the data structure.
+**Example 2.** Here, the tested key paths are less trivial, yet still straightforward to manage since they simply mirror the data structure once the special keys are omitted.
 
-<!-- BLOCK TESTS - LICENSES - START -->
+<!-- BLOCK TESTS - PROJECT - LICENSES - START -->
 
 ~~~yaml
-# Extract of 'tests/data/project/licenses.yaml' file (2026-11-22).
+# 'tests/data/project/licenses.yaml' file (2026-11-22).
 
 licenses:
   code: gpl 3.0 only
@@ -23,4 +23,4 @@ licenses:
         _str: Creative Commons Attribution Non Commercial 4.0 International
 ~~~
 
-<!-- BLOCK TESTS - LICENSES - END -->
+<!-- BLOCK TESTS - PROJECT - LICENSES - END -->

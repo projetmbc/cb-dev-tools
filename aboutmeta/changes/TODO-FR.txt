@@ -5,11 +5,6 @@ aboutmeta - TODO
 
 > ---------------------------- <
 
-leading underscores are prohibited in block keys
-
-
-> ---------------------------- <
-
 --------
 :update:
 --------
@@ -36,6 +31,10 @@ The \docs and manual can be easily translated in the path::''contrib/translate''
 ????   Full \docs and \readme files: the \contrib \docs are now automatically integrated (this avoids \doc overhead when updating a \contrib). This implies precise \doc in all \contribs.
 
 
+
+> ---------------------------- <
+
+leading underscores are prohibited in block keys
 
 
 > ---------------------------- <

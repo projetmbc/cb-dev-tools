@@ -1,28 +1,24 @@
-**Example 4.** .
+**Example 4.** Testing `Python` dictionaries requires using the special key `_dict`, which expects a list of `YAML` dictionaries using the special keys `_key` and `_val`, as shown in the example below.
 
 
-<!-- BLOCK TESTS - TOC PATHS - START -->
+<!-- BLOCK TESTS - ATOC - PATTERNS - START -->
 
 ~~~yaml
-# Extract of 'tests/data/atoc/toc_paths.yaml' file (2026-11-26).
+# 'tests/data/atoc/patterns.yaml' file (2026-11-26).
 
-- ./unit/tests/this.yaml
 - g: unit/tests/*.yaml
 - rr: unit/tests/[^/]+\.yaml
 
 ---
 
 _elt-1:
-  _str: ./unit/tests/this.yaml
-
-_elt-2:
   _dict:
     - _key:
         _str: glob
       _val:
         _str: unit/tests/*.yaml
 
-_elt-3:
+_elt-2:
   _dict:
     - _key:
         _str: r-regex
@@ -32,7 +28,7 @@ _elt-3:
             _str: unit/tests/[^/]+\.yaml
 ~~~
 
-<!-- BLOCK TESTS - TOC PATHS - END -->
+<!-- BLOCK TESTS - ATOC - PATTERNS - END -->
 
 
 > ***IMPORTANT.*** *Note that using a list lets you reuse the special keys `_key` and `_val` multiple times if needed.*

@@ -1,10 +1,10 @@
 **Example 1.** Here is a first code example, explained right below. This test may seem simplistic, but keep in mind that it validates both the extracted value and its access path (kept to a minimum here).
 
 
-<!-- BLOCK TESTS - VERSION - START -->
+<!-- BLOCK TESTS - PROJECT - VERSION - START -->
 
 ~~~yaml
-# Extract of 'tests/data/project/version.yaml' file (2026-11-22).
+# 'tests/data/project/version.yaml' file (2026-11-22).
 
 version: 1.2.3-beta.4
 
@@ -20,14 +20,17 @@ version:
       _str: beta.4
 ~~~
 
-<!-- BLOCK TESTS - VERSION - END -->
+<!-- BLOCK TESTS - PROJECT - VERSION - END -->
 
 
 The preceding code starts with a YAML document (before `---`) containing sample user-provided data, next come the tests, which cover two features.
 
-  * First, we verify that the `Python` value has string representation `"1.2.3-beta.4"`.
+  * With `_str: 1.2.3-beta.4`, we test that the `Python` value of `version` has the string representation `"1.2.3-beta.4"`.
 
-  * Second, we check the values of specific attributes. There is no need to test everything, as this is already covered by the parser tests. Since an attribute is a `Python` object, we ask to test the string representation of the tested attributes.
+  * Via the special key `_attr`, we test the string representations of the `major` and `prerelease` attributes.
+
+
+> ***IMPORTANT.*** *There is no need to test everything, as this is already covered by the parser tests.*
 
 
 > ***NOTE.*** *Note that test-specific keys start with an underscore, which explains why leading underscores are prohibited in block keys.*
