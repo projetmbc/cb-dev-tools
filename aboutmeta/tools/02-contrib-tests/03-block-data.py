@@ -12,9 +12,9 @@ from cbutils.pathplus import *
 from yaml import safe_load_all
 
 
-# --------------- #
-# -- CONSTANTS -- #
-# --------------- #
+# ------------------ #
+# -- CONSTANTS #1 -- #
+# ------------------ #
 
 CONTEXT  = 'block'
 KIND     = 'data'
@@ -42,11 +42,22 @@ CONTRIB_TESTS_DIR = CONTRIB_DIR / 'tests' / KIND
 TESTS_DIR = PROJECT_DIR / 'tests' / 'api' / f'{NUM_TESTS:02}-{CONTEXT}-{KIND}' / 'contribs'
 
 
-# --------------------------------------------- #
-# -- XXX -- #
-# --------------------------------------------- #
+# ------------------ #
+# -- CONSTANTS #2 -- #
+# ------------------ #
 
-def validate_test_file(yfile):
+PATTERN_YAML_ELT = re.compile(r"\A_elt-[1-9][0-9]*\Z")
+
+
+KEYVAL = {'_key', '_val'}
+
+
+# ---------------- #
+# -- VALIDATION -- #
+# ---------------- #
+
+
+def validate_test_file(yfile: Path) -> None:
     file_id = f'{yfile.parent.name}/{yfile.name}'
     file_id = f'{file_id!r}'
 
@@ -62,45 +73,139 @@ def validate_test_file(yfile):
     if len(data_tests) != 2:
         raise ValueError(
             f'2 YAML docs expected in {file_id}, '
-            f'not {len(data_tests)}.'
+            f'not {len(data_tests)}'
         )
 
 # Two legal docs?
     data, tests = data_tests
 
+    if not isinstance(tests, dict):
+        raise TypeError(
+             '2nd YAML doc must be a dict. '
+            f'See illegal value:\n{tests}'
+        )
+
     if isinstance(data, list):
-        validate_data_list(data, tests)
+        validate_test_list(tests)
 
     else:
-        validate_data_dict(data, tests)
+        validate_test_dict(data, tests)
 
 
+def validate_test_list(tests: dict) -> None:
+    for k, v in tests.items():
+        if not bool(PATTERN_YAML_ELT.match(k)):
+            raise ValueError(
+                 "testing lists relies on '_elt-<nb>' keys: "
+                 f'{k!r} is illegal. See:\n{tests}'
+            )
+
+        validate_pyobjects(v)
 
 
+def validate_test_dict(
+    data : dict,
+    tests: dict,
+) -> None:
+    data_keys = set()
 
-# General structure is legal.
-    return data, tests
+    build_yaml_keys(
+        data,
+        data_keys
+    )
+
+    tests_keys = set()
+
+    build_yaml_keys(
+        tests,
+        tests_keys
+    )
+
+    print(f'{data_keys  = }')
+    print(f'{tests_keys = }')
+
+    exit()
 
 
-def validate_data_list(data, tests):
-    print(f'LIST: {data}')
-    print(f'      {tests}')
+def build_yaml_keys(
+    yamldict: dict,
+    allkeys :set,
+ ) -> set:
+    # for k, v in yamldict.items()
+    ...
 
 
-def validate_data_dict(data, tests):
-    print(f'DICT: {data}')
-    print(f'      {tests}')
+def validate_pyobjects(tests: dict) -> None:
+    if not isinstance(tests, dict):
+        raise TypeError(
+             'Testing Python objects relies on a dict. '
+            f'See illegal value:\n{tests}'
+        )
+
+    for k, d in tests.items():
+        validate_one_pyobject(
+            kind = k,
+            data = d,
+        )
 
 
+def validate_one_pyobject(
+    kind: str,
+    data: dict,
+) -> None:
+    if not isinstance(kind, str):
+        raise TypeError(
+             'Testing Python object relies on string keys. '
+            f'See illegal value:\n{kind}'
+        )
 
+    match kind:
+# String.
+        case '_str':
+            if not isinstance(data, str):
+                raise TypeError(
+                     'Data tested must be a string. '
+                    f'See illegal value:\n{kind}: {data}'
+                )
 
+# Dict.
+        case '_dict':
+            if not isinstance(data, list):
+                raise TypeError(
+                     'Testing Python dict value relies on a list of dicts. '
+                    f'See illegal value:\n{kind}: {data}'
+                )
 
+            for keyval in data:
+                if (
+                    not isinstance(keyval, dict)
+                    or
+                    set(keyval.keys()) != KEYVAL
+                ):
+                    raise TypeError(
+                         'Testing Python dicts relies on _key/_val dicts. '
+                        f'See illegal value:\n{keyval}'
+                    )
 
+                for _ , v in keyval.items():
+                    validate_pyobjects(v)
 
+# Attribute.
+        case '_attr':
+            if not isinstance(data, dict):
+                raise TypeError(
+                     'Testing Python object attribute relies on a dict. '
+                    f'See illegal value:\n{kind}: {data}'
+                )
 
+            for _ , v in data.items():
+                validate_pyobjects(v)
 
-
-
+# Illegal key.
+        case _:
+            raise ValueError(
+                f'Unknwon Python special key {kind!r}.'
+            )
 
 
 # ----------------- #
@@ -135,4 +240,4 @@ for folder, contribs in get_accepted_paths(
             _(unit_test_data)
 
         for yfile in contrib_test_data.glob('*.yaml'):
-            data, tests = validate_test_file(yfile)
+            validate_test_file(yfile)

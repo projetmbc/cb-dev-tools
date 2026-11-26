@@ -38,6 +38,8 @@ unit tests locaux
 
     --> integration du nouveau syst de teste des block : struct + Data
 
+    --> README de tests des block data : les exemples, les code ajoutés automatiquement doivent être commentés pour faire apparaître quant on parle à Python
+
 
     --> pasresr docs: [[input]] / [[output]]
 
