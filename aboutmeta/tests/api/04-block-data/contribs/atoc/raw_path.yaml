@@ -1,0 +1,6 @@
+- ./unit/tests/this.yaml
+
+---
+
+_elt-1:
+  _str: ./unit/tests/this.yaml

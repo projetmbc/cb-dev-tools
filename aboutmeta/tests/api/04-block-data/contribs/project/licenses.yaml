@@ -1,0 +1,16 @@
+licenses:
+  code: gpl 3.0 only
+  manual: cc by nc 4.0
+
+---
+
+licenses:
+  code:
+    _attr:
+      spdx_id:
+        _str: GPL-3.0-only
+
+  manual:
+    _attr:
+      name:
+        _str: Creative Commons Attribution Non Commercial 4.0 International

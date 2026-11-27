@@ -1,0 +1,27 @@
+authors:
+  - Mr, Nobody
+  - Jean, Louis, Krivine [jl-krivine@compile.brain]
+  - Torvalds (Sacred Kernels Department)
+
+---
+
+authors:
+  _elt-1:
+    _attr:
+      surname:
+        _str: Nobody
+
+  _elt-2:
+    _attr:
+      # firstnames:
+      #   _list:
+      #     - _str: Jean
+      #     - _str: Louis
+
+      email:
+        _str: jl-krivine@compile.brain
+
+  _elt-3:
+    _attr:
+      affiliation:
+        _str: Sacred Kernels Department

@@ -1,0 +1,20 @@
+- g: unit/tests/*.yaml
+- rr: unit/tests/[^/]+\.yaml
+
+---
+
+_elt-1:
+  _dict:
+    - _key:
+        _str: glob
+      _val:
+        _str: unit/tests/*.yaml
+
+_elt-2:
+  _dict:
+    - _key:
+        _str: r-regex
+      _val:
+        _attr:
+          pattern:
+            _str: unit/tests/[^/]+\.yaml

@@ -1,0 +1,14 @@
+require:
+  - prolog
+  - python
+  - latex
+  - haskell
+
+---
+
+require:
+  _elt-1:
+    _str: prolog
+
+  _elt-4:
+    _str: haskell

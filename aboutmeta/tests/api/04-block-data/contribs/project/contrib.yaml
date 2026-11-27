@@ -1,0 +1,12 @@
+contrib: Mr, Nobody
+
+---
+
+contrib:
+  _attr:
+    surname:
+      _str: Nobody
+
+    firstnames:
+      _list:
+        - _str: Mr

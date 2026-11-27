@@ -1,0 +1,13 @@
+version: 1.2.3-beta.4
+
+---
+
+version:
+  _str: 1.2.3-beta.4
+
+  _attr:
+    major:
+      _str: '1'
+
+    prerelease:
+      _str: beta.4

@@ -308,3 +308,8 @@ for folder, contribs in get_accepted_paths(
             contrib_test_data.glob('*.yaml')
         ):
             validate_test_file(yfile)
+
+            create_update_file(
+                file    = unit_test_data / yfile.name,
+                content = yfile.read_text(),
+            )
